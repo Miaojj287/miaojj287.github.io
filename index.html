@@ -1,65 +1,220 @@
 ```
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Capstone 国际高中生英语培训</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            margin: 20px;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+        .form-group {
+            margin-bottom: 15px;
         }
-        nav {
-            margin: 0;
-            padding: 1rem;
-            background-color: #444;
-            text-align: center;
+        label {
+            display: block;
+            margin-bottom: 5px;
         }
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
         }
-        section {
-            padding: 2rem;
-            background-color: #fff;
+        .button-group {
+            margin-top: 20px;
         }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+        }
+        .schedule {
+            margin-top: 20px;
+        }
+        .schedule h2 {
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
+    <h1>Schedule System</h1>
 
-<header>
-    <h1>欢迎来到 Capstone</h1>
-    <p>国际高中生英语培训专家</p>
-</header>
+    <div class="form-group">
+        <h2>Add Teacher</h2>
+        <label for="teacherName">Teacher Name:</label>
+        <input type="text" id="teacherName">
+        <label for="teacherCourses">Courses (comma separated):</label>
+        <input type="text" id="teacherCourses">
+        <button onclick="addTeacher()">Add Teacher</button>
+    </div>
 
-<nav>
-    <a href="#">主页</a>
-    <a href="#">关于我们</a>
-    <a href="#">课程介绍</a>
-    <a href="#">成功案例</a>
-    <a href="#">报名咨询</a>
-    <a href="#">联系我们</a>
-</nav>
+    <div class="form-group">
+        <h2>Add Student</h2>
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName">
+        <button onclick="addStudent()">Add Student</button>
+    </div>
 
-<section>
-    <h2>我们的服务</h2>
-    <p>Capstone 专注
+    <div class="form-group">
+        <h2>Add Course</h2>
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName">
+        <label for="courseTime">Course Time:</label>
+        <input type="text" id="courseTime">
+        <label for="courseTeacher">Teacher ID:</label>
+        <input type="number" id="courseTeacher">
+        <button onclick="addCourse()">Add Course</button>
+    </div>
+
+    <div class="form-group">
+        <h2>Assign Course to Student</h2>
+        <label for="assignCourseId">Course ID:</label>
+        <input type="number" id="assignCourseId">
+        <label for="assignStudentId">Student ID:</label>
+        <input type="number" id="assignStudentId">
+        <button onclick="assignCourse()">Assign Course</button>
+    </div>
+
+    <div class="form-group">
+        <h2>Add TA</h2>
+        <label for="taName">TA Name:</label>
+        <input type="text" id="taName">
+        <button onclick="addTA()">Add TA</button>
+    </div>
+
+    <div class="form-group">
+        <h2>Set TA Rest Days</h2>
+        <label for="taId">TA ID:</label>
+        <input type="number" id="taId">
+        <label for="taRestDays">Rest Days (comma separated):</label>
+        <input type="text" id="taRestDays">
+        <button onclick="setTARestDays()">Set Rest Days</button>
+    </div>
+
+    <div class="schedule">
+        <h2>Schedules</h2>
+        <div id="schedules"></div>
+    </div>
+
+    <script>
+        let teachers = {};
+        let students = {};
+        let courses = {};
+        let tas = {};
+
+        function addTeacher() {
+            const name = document.getElementById('teacherName').value;
+            const courses = document.getElementById('teacherCourses').value.split(',');
+            const id = Object.keys(teachers).length + 1;
+            teachers[id] = { name, courses };
+            alert('Teacher added successfully!');
+            displaySchedules();
+        }
+
+        function addStudent() {
+            const name = document.getElementById('studentName').value;
+            const id = Object.keys(students).length + 1;
+            students[id] = { name, courses: [] };
+            alert('Student added successfully!');
+            displaySchedules();
+        }
+
+        function addCourse() {
+            const name = document.getElementById('courseName').value;
+            const time = document.getElementById('courseTime').value;
+            const teacherId = document.getElementById('courseTeacher').value;
+            const id = Object.keys(courses).length + 1;
+            courses[id] = { name, time, teacherId, studentIds: [] };
+            alert('Course added successfully!');
+            displaySchedules();
+        }
+
+        function assignCourse() {
+            const courseId = document.getElementById('assignCourseId').value;
+            const studentId = document.getElementById('assignStudentId').value;
+            if (courses[courseId] && students[studentId]) {
+                courses[courseId].studentIds.push(studentId);
+                students[studentId].courses.push(courseId);
+                alert('Course assigned to student successfully!');
+                displaySchedules();
+            } else {
+                alert('Invalid course ID or student ID');
+            }
+        }
+
+        function addTA() {
+            const name = document.getElementById('taName').value;
+            const id = Object.keys(tas).length + 1;
+            tas[id] = { name, restDays: [] };
+            alert('TA added successfully!');
+            displaySchedules();
+        }
+
+        function setTARestDays() {
+            const taId = document.getElementById('taId').value;
+            const restDays = document.getElementById('taRestDays').value.split(',');
+            if (tas[taId]) {
+                tas[taId].restDays = restDays;
+                checkTARestConflict();
+                alert('TA rest days set successfully!');
+                displaySchedules();
+            } else {
+                alert('Invalid TA ID');
+            }
+        }
+
+        function checkTARestConflict() {
+            const restDaysCount = {};
+            for (const ta of Object.values(tas)) {
+                for (const day of ta.restDays) {
+                    if (!restDaysCount[day]) {
+                        restDaysCount[day] = 0;
+                    }
+                    restDaysCount[day]++;
+                    if (restDaysCount[day] > 1) {
+                        alert(`Conflict: More than one TA resting on ${day}`);
+                    }
+                }
+            }
+        }
+
+        function displaySchedules() {
+            const schedulesDiv = document.getElementById('schedules');
+            schedulesDiv.innerHTML = '';
+
+            for (const [id, teacher] of Object.entries(teachers)) {
+                const teacherDiv = document.createElement('div');
+                teacherDiv.innerHTML = `<h3>Teacher ${teacher.name}'s schedule:</h3>`;
+                teacher.courses.forEach(courseId => {
+                    if (courses[courseId]) {
+                        const course = courses[courseId];
+                        teacherDiv.innerHTML += `<p>Course: ${course.name}, Time: ${course.time}</p>`;
+                    }
+                });
+                schedulesDiv.appendChild(teacherDiv);
+            }
+
+            for (const [id, student] of Object.entries(students)) {
+                const studentDiv = document.createElement('div');
+                studentDiv.innerHTML = `<h3>Student ${student.name}'s schedule:</h3>`;
+                student.courses.forEach(courseId => {
+                    if (courses[courseId]) {
+                        const course = courses[courseId];
+                        studentDiv.innerHTML += `<p>Course: ${course.name}, Time: ${course.time}</p>`;
+                    }
+                });
+                schedulesDiv.appendChild(studentDiv);
+            }
+
+            for (const [id, ta] of Object.entries(tas)) {
+                const taDiv = document.createElement('div');
+                taDiv.innerHTML = `<h3>TA ${ta.name}'s rest days:</h3>`;
+                taDiv.innerHTML += `<p>${ta.restDays.join(', ')}</p>`;
+                schedulesDiv.appendChild(taDiv);
+            }
+        }
+    </script>
+</body>
+</html>
 
 ```
