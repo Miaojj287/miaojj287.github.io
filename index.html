@@ -1,105 +1,172 @@
 ```
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Schedule System</title>
+    <title>排课系统</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         label {
             display: block;
             margin-bottom: 5px;
+            color: #555;
         }
         input[type="text"], input[type="number"] {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
             box-sizing: border-box;
-        }
-        .button-group {
-            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         button {
             padding: 10px 15px;
-            margin-right: 10px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
         }
         .schedule {
             margin-top: 20px;
         }
-        .schedule h2 {
-            margin-top: 40px;
+        .section {
+            margin-bottom: 40px;
         }
     </style>
 </head>
 <body>
-    <h1>Schedule System</h1>
+    <div class="container">
+        <h1>排课系统</h1>
 
-    <div class="form-group">
-        <h2>Add Teacher</h2>
-        <label for="teacherName">Teacher Name:</label>
-        <input type="text" id="teacherName">
-        <label for="teacherCourses">Courses (comma separated):</label>
-        <input type="text" id="teacherCourses">
-        <button onclick="addTeacher()">Add Teacher</button>
-    </div>
+        <div class="section">
+            <h2>添加教师</h2>
+            <div class="form-group">
+                <label for="teacherName">教师姓名:</label>
+                <input type="text" id="teacherName">
+                <label for="teacherCourses">课程（用逗号分隔）:</label>
+                <input type="text" id="teacherCourses">
+                <div class="button-group">
+                    <button onclick="addTeacher()">添加教师</button>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <h2>Add Student</h2>
-        <label for="studentName">Student Name:</label>
-        <input type="text" id="studentName">
-        <button onclick="addStudent()">Add Student</button>
-    </div>
+        <div class="section">
+            <h2>添加学生</h2>
+            <div class="form-group">
+                <label for="studentName">学生姓名:</label>
+                <input type="text" id="studentName">
+                <label for="studentCourse">上课内容:</label>
+                <input type="text" id="studentCourse">
+                <label for="courseDay">上课日期:</label>
+                <input type="text" id="courseDay">
+                <label for="teacherForCourse">授课教师:</label>
+                <input type="text" id="teacherForCourse">
+                <div class="button-group">
+                    <button onclick="addStudent()">添加学生</button>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <h2>Add Course</h2>
-        <label for="courseName">Course Name:</label>
-        <input type="text" id="courseName">
-        <label for="courseTime">Course Time:</label>
-        <input type="text" id="courseTime">
-        <label for="courseTeacher">Teacher ID:</label>
-        <input type="number" id="courseTeacher">
-        <button onclick="addCourse()">Add Course</button>
-    </div>
+        <div class="section">
+            <h2>添加助教</h2>
+            <div class="form-group">
+                <label for="taName">助教姓名:</label>
+                <input type="text" id="taName">
+                <label for="taRestDays">该周休息日期（用逗号分隔）:</label>
+                <input type="text" id="taRestDays">
+                <div class="button-group">
+                    <button onclick="addTA()">添加助教</button>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <h2>Assign Course to Student</h2>
-        <label for="assignCourseId">Course ID:</label>
-        <input type="number" id="assignCourseId">
-        <label for="assignStudentId">Student ID:</label>
-        <input type="number" id="assignStudentId">
-        <button onclick="assignCourse()">Assign Course</button>
-    </div>
-
-    <div class="form-group">
-        <h2>Add TA</h2>
-        <label for="taName">TA Name:</label>
-        <input type="text" id="taName">
-        <button onclick="addTA()">Add TA</button>
-    </div>
-
-    <div class="form-group">
-        <h2>Set TA Rest Days</h2>
-        <label for="taId">TA ID:</label>
-        <input type="number" id="taId">
-        <label for="taRestDays">Rest Days (comma separated):</label>
-        <input type="text" id="taRestDays">
-        <button onclick="setTARestDays()">Set Rest Days</button>
-    </div>
-
-    <div class="schedule">
-        <h2>Schedules</h2>
-        <div id="schedules"></div>
+        <div class="schedule">
+            <h2>课表</h2>
+            <table id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>周一</th>
+                        <th>周二</th>
+                        <th>周三</th>
+                        <th>周四</th>
+                        <th>周五</th>
+                        <th>周六</th>
+                        <th>周日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>上午</td>
+                        <td id="mon-am"></td>
+                        <td id="tue-am"></td>
+                        <td id="wed-am"></td>
+                        <td id="thu-am"></td>
+                        <td id="fri-am"></td>
+                        <td id="sat-am"></td>
+                        <td id="sun-am"></td>
+                    </tr>
+                    <tr>
+                        <td>下午</td>
+                        <td id="mon-pm"></td>
+                        <td id="tue-pm"></td>
+                        <td id="wed-pm"></td>
+                        <td id="thu-pm"></td>
+                        <td id="fri-pm"></td>
+                        <td id="sat-pm"></td>
+                        <td id="sun-pm"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
         let teachers = {};
         let students = {};
-        let courses = {};
         let tas = {};
 
         function addTeacher() {
@@ -107,60 +174,29 @@
             const courses = document.getElementById('teacherCourses').value.split(',');
             const id = Object.keys(teachers).length + 1;
             teachers[id] = { name, courses };
-            alert('Teacher added successfully!');
-            displaySchedules();
+            alert('教师添加成功！');
+            displaySchedule();
         }
 
         function addStudent() {
             const name = document.getElementById('studentName').value;
+            const course = document.getElementById('studentCourse').value;
+            const day = document.getElementById('courseDay').value;
+            const teacher = document.getElementById('teacherForCourse').value;
             const id = Object.keys(students).length + 1;
-            students[id] = { name, courses: [] };
-            alert('Student added successfully!');
-            displaySchedules();
-        }
-
-        function addCourse() {
-            const name = document.getElementById('courseName').value;
-            const time = document.getElementById('courseTime').value;
-            const teacherId = document.getElementById('courseTeacher').value;
-            const id = Object.keys(courses).length + 1;
-            courses[id] = { name, time, teacherId, studentIds: [] };
-            alert('Course added successfully!');
-            displaySchedules();
-        }
-
-        function assignCourse() {
-            const courseId = document.getElementById('assignCourseId').value;
-            const studentId = document.getElementById('assignStudentId').value;
-            if (courses[courseId] && students[studentId]) {
-                courses[courseId].studentIds.push(studentId);
-                students[studentId].courses.push(courseId);
-                alert('Course assigned to student successfully!');
-                displaySchedules();
-            } else {
-                alert('Invalid course ID or student ID');
-            }
+            students[id] = { name, course, day, teacher };
+            alert('学生添加成功！');
+            displaySchedule();
         }
 
         function addTA() {
             const name = document.getElementById('taName').value;
-            const id = Object.keys(tas).length + 1;
-            tas[id] = { name, restDays: [] };
-            alert('TA added successfully!');
-            displaySchedules();
-        }
-
-        function setTARestDays() {
-            const taId = document.getElementById('taId').value;
             const restDays = document.getElementById('taRestDays').value.split(',');
-            if (tas[taId]) {
-                tas[taId].restDays = restDays;
-                checkTARestConflict();
-                alert('TA rest days set successfully!');
-                displaySchedules();
-            } else {
-                alert('Invalid TA ID');
-            }
+            const id = Object.keys(tas).length + 1;
+            tas[id] = { name, restDays };
+            checkTARestConflict();
+            alert('助教添加成功！');
+            displaySchedule();
         }
 
         function checkTARestConflict() {
@@ -172,45 +208,25 @@
                     }
                     restDaysCount[day]++;
                     if (restDaysCount[day] > 1) {
-                        alert(`Conflict: More than one TA resting on ${day}`);
+                        alert(`冲突：多个助教在 ${day} 休息`);
                     }
                 }
             }
         }
 
-        function displaySchedules() {
-            const schedulesDiv = document.getElementById('schedules');
-            schedulesDiv.innerHTML = '';
+        function displaySchedule() {
+            const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+            const times = ['am', 'pm'];
 
-            for (const [id, teacher] of Object.entries(teachers)) {
-                const teacherDiv = document.createElement('div');
-                teacherDiv.innerHTML = `<h3>Teacher ${teacher.name}'s schedule:</h3>`;
-                teacher.courses.forEach(courseId => {
-                    if (courses[courseId]) {
-                        const course = courses[courseId];
-                        teacherDiv.innerHTML += `<p>Course: ${course.name}, Time: ${course.time}</p>`;
-                    }
-                });
-                schedulesDiv.appendChild(teacherDiv);
+            for (const day of days) {
+                for (const time of times) {
+                    document.getElementById(`${day}-${time}`).innerHTML = '';
+                }
             }
 
-            for (const [id, student] of Object.entries(students)) {
-                const studentDiv = document.createElement('div');
-                studentDiv.innerHTML = `<h3>Student ${student.name}'s schedule:</h3>`;
-                student.courses.forEach(courseId => {
-                    if (courses[courseId]) {
-                        const course = courses[courseId];
-                        studentDiv.innerHTML += `<p>Course: ${course.name}, Time: ${course.time}</p>`;
-                    }
-                });
-                schedulesDiv.appendChild(studentDiv);
-            }
-
-            for (const [id, ta] of Object.entries(tas)) {
-                const taDiv = document.createElement('div');
-                taDiv.innerHTML = `<h3>TA ${ta.name}'s rest days:</h3>`;
-                taDiv.innerHTML += `<p>${ta.restDays.join(', ')}</p>`;
-                schedulesDiv.appendChild(taDiv);
+            for (const student of Object.values(students)) {
+                const [day, time] = student.day.split('-');
+                document.getElementById(`${day}-${time}`).innerHTML += `<p>${student.course} (${student.name} - ${student.teacher})</p>`;
             }
         }
     </script>
