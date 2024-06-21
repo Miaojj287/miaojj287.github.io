@@ -7,7 +7,7 @@ url: https://etytech.com
 # Owner/author information
 owner:
   name: Yijun Miao
-  avatar: hanlin.jpg
+  avatar: cat.JPG
   # bio: Two roads diverged in woods, I took the one less traveled by.
   email: hanlin.cai@ieee.org
   cv: https://caihanlin.com/file/CV-HanlinCAI.pdf
@@ -84,4 +84,4 @@ disqus:
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "minimal-mistakes.sublime-project", "minimal-mistakes.sublime-workspace"]
 
-# Latest update in 2023/12/10 by Hanlin Cai.
+
