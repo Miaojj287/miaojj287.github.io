@@ -33,6 +33,39 @@
       .carousel img.active {
          opacity: 1;
       }
+      .carousel-indicators {
+         position: absolute;
+         bottom: 10px;
+         display: flex;
+         justify-content: center;
+         width: 100%;
+      }
+      .carousel-indicators div {
+         width: 10px;
+         height: 10px;
+         margin: 0 5px;
+         background-color: gray;
+         border-radius: 50%;
+         cursor: pointer;
+      }
+      .carousel-indicators div.active {
+         background-color: white;
+      }
+      .carousel-control {
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+         font-size: 2rem;
+         color: white;
+         cursor: pointer;
+         user-select: none;
+      }
+      .carousel-control.left {
+         left: 10px;
+      }
+      .carousel-control.right {
+         right: 10px;
+      }
    </style>
 </head>
 <body>
@@ -41,7 +74,7 @@
    
    <section class="flex">
 
-      <a href="index.html" class="logo">Capstone</a>
+      <a href="show.html" class="logo">Capstone</a>
 
       <form action="search.html" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -84,7 +117,7 @@
    </div>
 
    <nav class="navbar">
-      <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+      <a href="show.html"><i class="fas fa-home"></i><span>home</span></a>
       <a href="test.html"><i class="fas fa-vial"></i><span>test</span></a>
       <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
@@ -99,12 +132,19 @@
       <img src="images/fengjing1.jpg" class="active" alt="Scenery 1">
       <img src="images/fengjing2.jpg" alt="Scenery 2">
       <img src="images/fengjing3.jpg" alt="Scenery 3">
+      <div class="carousel-control left" id="prev">&lsaquo;</div>
+      <div class="carousel-control right" id="next">&rsaquo;</div>
+      <div class="carousel-indicators">
+         <div class="active" data-index="0"></div>
+         <div data-index="1"></div>
+         <div data-index="2"></div>
+      </div>
    </div>
 </section>
 
 <footer class="footer">
 
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
+   &copy; copyright @ 2024 by <span>Etytech</span> | all rights reserved!
 
 </footer>
 
@@ -113,12 +153,38 @@
 <script>
    let currentImageIndex = 0;
    const images = document.querySelectorAll('.carousel img');
+   const indicators = document.querySelectorAll('.carousel-indicators div');
+   const prevButton = document.getElementById('prev');
+   const nextButton = document.getElementById('next');
 
-   setInterval(() => {
+   function showImage(index) {
       images[currentImageIndex].classList.remove('active');
-      currentImageIndex = (currentImageIndex + 1) % images.length;
+      indicators[currentImageIndex].classList.remove('active');
+      currentImageIndex = index;
       images[currentImageIndex].classList.add('active');
-   }, 3000);
+      indicators[currentImageIndex].classList.add('active');
+   }
+
+   function showNextImage() {
+      let nextIndex = (currentImageIndex + 1) % images.length;
+      showImage(nextIndex);
+   }
+
+   function showPrevImage() {
+      let prevIndex = (currentImageIndex - 1 + images.length) % images.length;
+      showImage(prevIndex);
+   }
+
+   nextButton.addEventListener('click', showNextImage);
+   prevButton.addEventListener('click', showPrevImage);
+
+   indicators.forEach(indicator => {
+      indicator.addEventListener('click', () => {
+         showImage(parseInt(indicator.getAttribute('data-index')));
+      });
+   });
+
+   setInterval(showNextImage, 3000);
 </script>
 
 </body>
