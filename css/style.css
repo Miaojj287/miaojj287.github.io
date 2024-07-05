@@ -104,10 +104,32 @@ body {
    text-align: center;
    padding: 20px 0;
 }
-/* Add this at the end of your css/style.css file */
+/* Update the container styling to ensure proper padding */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Adds padding to prevent content from touching the edges */
+}
+
+/* Update the navbar styling to adjust spacing and alignment */
+.header .navbar ul {
+    display: flex;
+    justify-content: space-around; /* Adjusts spacing between navigation items */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header .navbar ul li {
+    margin: 0 15px; /* Adds margin between list items */
+}
+
+/* Ensure portfolio images are displayed correctly */
 .portfolio-item img {
     width: 100%;
     height: auto;
-    max-height: 300px; /* You can adjust this value based on your preference */
+    max-height: 300px; /* Adjust this value based on your preference */
     object-fit: cover;
+    display: block; /* Ensures there is no extra space around the images */
 }
