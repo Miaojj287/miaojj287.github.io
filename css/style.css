@@ -104,3 +104,10 @@ body {
    text-align: center;
    padding: 20px 0;
 }
+/* Add this at the end of your css/style.css file */
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* You can adjust this value based on your preference */
+    object-fit: cover;
+}
