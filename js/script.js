@@ -1,12 +1,27 @@
-// Add JavaScript functionality if needed
-document.addEventListener('DOMContentLoaded', function() {
-   // Example: Smooth scrolling for anchor links
-   const links = document.querySelectorAll('a[href^="#"]');
-   for (const link of links) {
-       link.addEventListener('click', function(event) {
-           event.preventDefault();
-           const targetId = link.getAttribute('href').substring(1);
-           document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-       });
-   }
-});
+let isActive = false;
+function toggle() {
+  if (isActive) {
+    //disable active
+    document.querySelector('.right_nav').className = 'right_nav';
+    document.querySelector('.shadow').className = 'shadow';
+    document.querySelector('.mobile_nav').className = 'mobile_nav';
+    isActive = false;
+  } else {
+    //activate
+    document.querySelector('.right_nav').className = 'right_nav active';
+    document.querySelector('.shadow').className = 'shadow active';
+    document.querySelector('.mobile_nav').className = 'mobile_nav active';
+    isActive = true;
+  }
+}
+const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (section) {
+      if (section.isIntersecting) {
+        section.target.className = 'active';
+      }
+    });
+  }, {threshold: .8});
+  
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
