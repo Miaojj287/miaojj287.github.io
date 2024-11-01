@@ -24,15 +24,15 @@ author:
   avatar           : "profile.png"
   name             : "Ethan"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "| Founder | Developer | Product manager | Teacher |"
+  location         : "CA"
+  employer         : "UCSB"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "etytech@gmail.com" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  LinkedIn         : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
   impactstory      : # URL
   orcid            : "http://orcid.org/yourorcidurl"
   semantic         : # URL
