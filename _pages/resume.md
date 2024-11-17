@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: "https://yijunmiao.tech/files/resume.pdf"
+permalink: /resume/
 author_profile: true
 redirect_from:
   - /resume
