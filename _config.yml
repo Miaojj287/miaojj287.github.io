@@ -24,8 +24,8 @@ author:
   avatar           : "profile.png"
   name             : "Ethan"
   pronouns         : # example: "she/her"  
-  bio              : "| Founder | Developer | Product manager | Teacher |"
-  location         : "Los Angeles"
+  bio              : "Creator"
+  location         : "California"
   employer         : "UCSB"
   uri              : # URL
   email            : "etytech@gmail.com" 
