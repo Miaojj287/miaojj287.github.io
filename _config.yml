@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Yijun Miao/缪亦隽miàoyìjùn"
 title_separator          : "-"
-name                     : &name "Ethan Miao"
+name                     : &name "Ethan_Miao"
 description              : &description "personal description"
 url                      : https://yijunmiao.tech # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -22,7 +22,7 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Ethan Miao"
+  name             : "Ethan_Miao"
   pronouns         : # example: "she/her"  
   bio              : "Creator"
   location         : "California"
