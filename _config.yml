@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Yijun Miao/缪亦隽miàoyìjùn"
+title                    : "Yijun Miao / 缪亦隽"
 title_separator          : "-"
-name                     : &name "Ethan_Miao"
+name                     : &name "Ethan Miao"
 description              : &description "personal description"
 url                      : https://yijunmiao.tech # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -22,7 +22,7 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Ethan_Miao"
+  name             : "Ethan Miao"
   pronouns         : # example: "she/her"  
   bio              : "Creator"
   location         : "California"
@@ -65,7 +65,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : # Username for X / Twitter
+  twitter          : "MiaoYijun66642"
   vine             : # Username
   weibo            : # Username
   wechat           : #"images/wechat.JPG"
