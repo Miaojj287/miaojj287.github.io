@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Yijun Miao"
+title                    : "Yijun Miao/缪亦隽miàoyìjùn"
 title_separator          : "-"
 name                     : &name "Ethan_Miao"
 description              : &description "personal description"
@@ -68,7 +68,7 @@ author:
   twitter          : # Username for X / Twitter
   vine             : # Username
   weibo            : # Username
-  wechat           : "images/wechat.JPG"
+  wechat           : #"images/wechat.JPG"
   wikipedia        : # Username
   xing             : # Username
   youtube          : # Username
