@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Yijun Miao/缪亦隽miàoyìjùn"
+title                    : "Yijun Miao"
 title_separator          : "-"
 name                     : &name "Ethan_Miao"
 description              : &description "personal description"
