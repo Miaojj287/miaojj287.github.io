@@ -17,11 +17,11 @@ main:
   - title: "Hobbies"
     url: /hobbies/
         
-  #- title: "Blog Posts"
-  #  url: /year-archive/
+  - title: "Blog Posts"
+    url: /year-archive/
     
   - title: "Resume"
     url: /files/resume.pdf
     
-  - title: "Guide"
+  - title: "Contact"
     url: /images/wechat.JPG
