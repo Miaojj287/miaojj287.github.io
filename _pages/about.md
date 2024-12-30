@@ -1,15 +1,21 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About_Me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a hobbies, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
+Obviously, here is a personal website.
 
-A data-driven personal website
+Greetings! My name is Yìjùn Miào (缪亦隽, Ethan), I graduated from the SCNU, with a major in Electronic Information Engineering, and I currently pursuing a master's degree of technology management at UCSB. I have a genuine passion for both technology development and business management. I started my own tech studio, Etytech, during my university years, which focuses on empowering the education industry through artificial intelligence and other development technologies.Now I'm committed to advancing my technical and managerial skills in a reputable technology company. Always open to connecting with professionals and exploring new opportunities.
+
+If you are interested in any aspect of me, I am always open to discussions and collaborations. Feel free to reach out to me via the side bar or just click the "Contact" button and add me on WeChat.
+
+
+
+Research Interests
 ======
 Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
 
