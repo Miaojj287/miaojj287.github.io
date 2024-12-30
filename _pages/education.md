@@ -1,21 +1,34 @@
 ---
 permalink: /education/
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Education"
 author_profile: true
 redirect_from: 
   - /education/
   - /education.html
 ---
 
-Education
-======
+## Graduate
 
 * M.S. in University of Santa Barbara, California, 2025
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-  * 
+  * Data Analysis
+  * Artificial Intelligence
+  * Company Strategy
+  * Negotiation
+  * Entrepreneurship
+  
+## Undergraduate
+  
 * B.S. in South China Normal University, 2024
+
+  * Coding (C, C++, C#, Java, Python, Linux, Html, Css, Javascript, Swift, MySQL)
+  * Mathematics (Calculus, Linear Algebra, Discrete Mathematics, Probability and Statistics, Convolution)
+  * Circuit Design & Analysis (Embedded Systems, Analog & Digital Electronics, Robotics).
+
+## Before
+  
+* Guangzhou No. 16 Middle School, Guangzhou No. 3 High School.
+
+  * Contact me if you are my Alumni~
 
 Work experience
 ======
