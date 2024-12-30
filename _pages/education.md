@@ -14,6 +14,7 @@ redirect_from:
   * Company Strategy
   * Data Analysis
   * Negotiation
+
 ## Undergraduate
 
 * B.S. in South China Normal University, 2024
