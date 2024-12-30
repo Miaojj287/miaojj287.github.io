@@ -19,7 +19,7 @@ redirect_from:
 * B.S. in South China Normal University, 2024
 
   * Coding (C, C++, C#, Java, Python, Linux, Html, Css, Javascript, Swift, MySQL)
-  * Circuit Design & Analysis (Embedded Systems, Analog & Digital Electronics, Robotics).
+  * Circuit Design & Analysis (Embedded Systems, Analog & Digital Electronics, Robotics)
   * Mathematics (Calculus, Linear Algebra, Discrete Mathematics, Probability and Statistics, Convolution)
 
 ## Before
