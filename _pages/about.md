@@ -15,5 +15,5 @@ If you are interested in any aspect of me, I am always open to discussions and c
 
 Research Interests
 ======
-Like man
+I currently focus on Application and Gaming Development. My interests field are on the AR (Augmented Reality) and CV (Computer Vision). I firmly believe that as battery-based energy technology evolves, smartphones will not be the ultimate form of smart devices. Let’s wait and see what the next decade brings.
 
