@@ -32,3 +32,4 @@ Tiktok, Bilibili, Xiaohongshu
 Knowledge comes from books and from experience of the world
 
 ![这是图片](/images/500x300.png "Magic Gardens")
+
