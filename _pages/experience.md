@@ -14,13 +14,13 @@ redirect_from:
   * Using GenAI (ChatGPT, Claude, etc.)  to read the latest official developer guide and help develop
 
 * Summer 2024: Augmented Reality Educational APP 
-  * Develop with Unity engine
+  * Developing with Unity engine
   * Using Vuforia as AR framework
   * UI Design, 3D Modeling, Scripting
 
 * Fall 2023: A Study of 6G Signal Reflective Surfaces
   * Developing in FPGA Platform
-  * Microcontroller-Based Voice-Controlled System
+  * Making Microcontroller-Based Voice-Controlled System
   * Signal Filtering, Denoising, and Analysis
 
 * Fall 2022: Establishment and Operation of my fitness center
@@ -39,8 +39,8 @@ redirect_from:
   * Developing and promoting online education platforms
   * Customizing websites, applications, WeChat programs
 * Summer 2022: Project Assistant in LG Display(China)
-  * Assisted in the launch of new display products, including collecting sales and marketing data, managing documents and reports
-  *  Used data visualization tools to process and analyze the collected data, and concluded reports about the market trends and consumers’ preferences, providing data for the marketing department
+  * Assisting in the launch of new display products, including collecting sales and marketing data, managing documents and reports
+  *  Using data visualization tools to process and analyze the collected data, and concluding reports about the market trends and consumers’ preferences, providing data for the marketing department
 
 
 

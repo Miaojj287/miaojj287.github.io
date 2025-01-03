@@ -11,7 +11,7 @@ redirect_from:
 
 ## Weight Training
 
-Bench press: 90kg Squat: 160kg, Deadlift: 180kg
+Bench press: 90kg Squat: 160kg Deadlift: 180kg
 
 ![这是图片](/images/500x300.png "Magic Gardens")
 
