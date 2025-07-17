@@ -10,10 +10,12 @@ redirect_from:
 ## Graduate
 
 * M.S. in University of Santa Barbara, California, 2025
-  * Artificial Intelligence
-  * Company Strategy
-  * Data Analysis
-  * Negotiation
+
+	* Artificial Intelligence Apply (AI Agent, LLM)
+  * Business Strategy (Entrepreneurship, Marketing)
+	* Communication & Leadership (Communication, Negotiation)
+	* Data Analysis & Decision Making (Power BI, Tableau, Python)
+	* Professional Development (Team Collaboration, Product Thinking)
 
 ## Undergraduate
 
