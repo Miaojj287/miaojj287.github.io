@@ -13,9 +13,10 @@ redirect_from:
 
 	* Artificial Intelligence Apply (AI Agent, LLM)
   * Business Strategy (Entrepreneurship, Marketing)
-	* Communication & Leadership (Communication, Negotiation)
-	* Data Analysis & Decision Making (Power BI, Tableau, Python)
-	* Professional Development (Team Collaboration, Product Thinking)
+  * Communication & Leadership (Communication, Negotiation)
+  * Data Analysis & Decision Making (Power BI, Tableau, Python)
+  * Professional Development (Team Collaboration, Product Thinking)
+
 
 ## Undergraduate
 
