@@ -13,13 +13,13 @@ redirect_from:
 
 Bench press: 90kg Squat: 160kg Deadlift: 180kg
 
-![这是图片](/images/500x300.png "Magic Gardens")
+![这是图片](/images/weight.PNG "Magic Gardens")
 
 ## Basketball
 
 Basketball don't lie
 
-![这是图片](/images/500x300.png "Magic Gardens")
+![这是图片](/images/basketball.PNG "Magic Gardens")
 
 ## Self Media
 
