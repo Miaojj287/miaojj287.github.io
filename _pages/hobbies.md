@@ -21,15 +21,15 @@ Basketball don't lie
 
 ![这是图片](/images/basketball.PNG "Magic Gardens")
 
-## Self Media
+## Pet
 
-Tiktok, Bilibili, Xiaohongshu
+My dear daughter -- Bobo
 
-![这是图片](/images/500x300.png "Magic Gardens")
+![这是图片](/images/bobo.PNG. "Magic Gardens")
 
-## Travel
+## Social Media
 
-Knowledge comes from books and from experience of the world
+Trying to be an influencer
 
-![这是图片](/images/500x300.png "Magic Gardens")
+![这是图片](/images/media.JPG "Magic Gardens")
 
