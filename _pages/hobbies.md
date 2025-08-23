@@ -25,7 +25,7 @@ Basketball don't lie
 
 My dear daughter -- Bobo
 
-![这是图片](/images/bobo.PNG. "Magic Gardens")
+![这是图片](/images/bobo.PNG "Magic Gardens")
 
 ## Social Media
 
