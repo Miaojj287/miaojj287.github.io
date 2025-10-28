@@ -23,6 +23,9 @@ redirect_from:
 * Winter 2024: National Park CarPool APP
   * Code in Swift language using Xcode
   * Use GenAI (ChatGPT, Claude, etc.)  to read the latest official developer guide and help develop
+* Fall 2024: International Education Platform
+  * Led product design/specs (mock exams, vocab practice, analytics) for a C2C learning platform
+  * Coordinated with engineering team to streamline teacher/student workflows
 * Summer 2024: Augmented Reality Educational APP 
   * Develop with Unity engine
   * Use Vuforia as AR framework
