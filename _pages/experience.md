@@ -9,11 +9,14 @@ redirect_from:
 
 ## Project experience
 
+* Summer 2025: SE-agent (Open-source AI Agent)
+  * Co-developed SE-Agent, a self-evolution framework combining LLM post-training and reinforcement learning for multi-step reasoning; implemented trajectory-level optimization (Revision, Recombination, Refinement) enabling cross-trajectory policy evolution
+  * Benchmarked the system on SWE-bench Verified, reaching state-of-the-art 80% Top-1 accuracy and demonstrating up to 112% performance improvement over baseline agents
 * Summer 2025: Cherry Studio (Open-source AI Platform)
   * Collaborated with a team to evolve an open-source agent toolkit (34k+ GitHub stars) into a polished public beta with multi-LLM orchestration and tool-calling
   * Translated user feedback into a focused roadmap: defined user stories & agent templates, standardized prompt libraries and lightweight evaluation smoke tests, coordinated sprints and releases
   * Authored onboarding/docs and sample projects to reduce time-to-first-success and accelerate developer adoption
-* Summer 2025: NFL Sports Betting Analytics
+* Spring 2025: NFL Sports Betting Analytics
   * Analyze historical NFL scores and betting odds to uncover seasonal inefficiencies and inform data-driven wagering strategies
   * Build predictive models (Logistic Regression, Random Forest, Gradient Boosting) using engineered game features
   * Design a real-time data pipeline to continuously update model performance with 2025 season data
