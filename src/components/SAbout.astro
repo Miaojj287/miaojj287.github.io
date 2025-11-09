@@ -1,0 +1,1305 @@
+---
+// Awards are nice, but they’re not the goal.
+// Focus on building quality websites, enjoying the process, and making your clients happy—that’s what really matters.
+// Some amazing sites never win anything, while mediocre ones sometimes do. Awards are a niche, not a universal measure of value.
+// Stay sharp, stay honest, and keep having fun.
+const awards = {
+  counters: {
+    awwwards: ['SOTD x 16', 'Honors x 1'],
+    fwa: ['SOTD x 4', 'MOTD x 2'],
+    cssda: ['WOTD x 18', 'WOTM x 1'],
+  },
+  texts: {
+    webby2025: '2025 Webby Awards Winner <br/>Best Home Page',
+    commArt2017: 'Comm Arts Mag Interactive  Annual Competition Winner 2017',
+    netMag2016: 'Net Mag SOTM Summer 2016',
+    gsapOct2024: 'GSAP SOTM October 2024',
+    gsapNov2024: 'GSAP SOTM November 2024',
+    CSSDA2016: 'CSSDA Best Front-End <br/>Developer 2016',
+    CSSDA2015: 'CSSDA Best Front-End <br/>Developer 2015',
+  },
+}
+---
+
+<section id="about" class="s-about" data-intersect>
+  <div class="s__inner js-inner">
+    <div class="s__block s__block--about">
+      <h2 class="s__title">About</h2>
+
+      <div class="s__content">
+        <p>
+         Curiosity and the drive to learn are the most valuable skills for any creative developer. That hunger to understand how things work, to find clever workarounds, and to constantly push boundaries—that’s what makes this craft so rewarding.
+        </p>
+
+        <p>
+          Over the years, I’ve learned more from studying other people’s code than from any course or tutorial. Digging through Codrops experiments, exploring CodePen creations, and analyzing real-world projects—that’s how I leveled up. And it’s still part of my daily routine.
+        </p>
+
+        <p>
+          This portfolio brought me more recognition than I ever expected. What started as a quiet relaunch of my digital presence ended up winning a Webby Award. Now it’s time to give back.
+        </p>
+
+        <p>
+          I’m open-sourcing this site to share the knowledge behind it. If you’re a junior developer, I hope it helps you learn faster, build smarter, and gain confidence in your own journey.
+        </p>
+
+        <p>
+          If you’re tempted to copy/paste it and make it yours as-is—don’t. The community will call you out, and you’ll doom yourself to eternal mediocrity.
+        </p>
+      </div><!-- .s__content -->
+    </div><!-- .s__block -->
+
+    <div class="s__block s__block--awards">
+      <h2 class="s__title">Awards</h2>
+
+      <ul class="s__awards">
+        {
+          Object.entries(awards.counters).map(([award, counters]) => (
+            <li
+              class={`s__award s__award--counter s__award--${award} js-award`}
+            >
+              <span class="s__award__inner">
+                <span class="s__award__name">{award}</span>
+                {counters.map((counter) => (
+                  <span class="s__award__counter">({counter})</span>
+                ))}
+              </span>
+
+              <span class="s__award__mask" />
+            </li>
+          ))
+        }
+
+        {
+          Object.entries(awards.texts).map(([award, text]) => (
+            <li class={`s__award s__award--text s__award--${award} js-award`}>
+              <span class="s__award__inner">
+                <span class="s__award__text" set:html={text} />
+              </span>
+
+              <span class="s__award__mask" />
+            </li>
+          ))
+        }
+
+        <li class="s__award s__award--blank">
+          <svg
+            width="101"
+            height="113"
+            viewBox="0 0 101 113"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M80.05 107.398c-21.944 12.67-52.875.18-69.085-27.896m69.086 27.896c21.945-12.67 26.594-45.702 10.384-73.778M80.05 107.398c-19.686 11.366-48.786-2.181-64.996-30.258C-1.155 49.063 1.663 17.09 21.35 5.723m58.702 101.675c19.686-11.366 22.504-43.34 6.293-71.417C70.134 7.904 41.034-5.642 21.35 5.723m58.702 101.675c-10.973 6.335-33.009-11.29-49.219-39.367-16.21-28.077-20.456-55.973-9.483-62.308m58.702 101.675c10.972-6.335 6.726-34.231-9.484-62.308C54.357 17.013 32.322-.612 21.35 5.723m58.702 101.675c3.74-2.159-6.262-26.77-22.456-54.818S25.089 3.564 21.349 5.723m58.702 101.675c-3.74 2.159-20.053-18.808-36.246-46.856C27.61 32.493 17.609 7.882 21.349 5.723M10.965 79.502C-5.245 51.425-.596 18.393 21.349 5.723M10.965 79.502c11.366 19.686 38.37 25.373 60.314 12.703 21.946-12.67 30.522-38.9 19.156-58.585m-79.47 45.882C-.401 59.816 8.175 33.586 30.121 20.916c21.945-12.67 48.948-6.982 60.314 12.704m-79.47 45.882c6.335 10.972 29.26 9.596 51.206-3.074C84.115 63.758 96.77 44.592 90.434 33.62m-79.47 45.882C4.63 68.529 17.285 49.363 39.23 36.693c21.945-12.67 44.87-14.046 51.205-3.073M21.349 5.723c21.945-12.67 52.876-.18 69.086 27.897M54.749 63.573C32.778 76.258 13.192 83.358 11.033 79.618c-2.16-3.74 13.783-17.15 35.754-29.836 21.97-12.685 41.557-19.785 43.716-16.045 2.159 3.74-13.783 17.15-35.754 29.836Z"
+            >
+            </path>
+          </svg>
+
+          <svg
+            width="49"
+            height="49"
+            viewBox="0 0 49 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#160000"
+              d="m24.5 0 3.3 21.2L49 24.5l-21.2 3.3L24.5 49l-3.3-21.2L0 24.5l21.2-3.3L24.5 0z"
+            >
+            </path>
+          </svg>
+          <svg
+            width="49"
+            height="49"
+            viewBox="0 0 49 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#160000"
+              d="m24.5 0 3.3 21.2L49 24.5l-21.2 3.3L24.5 49l-3.3-21.2L0 24.5l21.2-3.3L24.5 0z"
+            >
+            </path>
+          </svg>
+          <svg
+            width="49"
+            height="49"
+            viewBox="0 0 49 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#160000"
+              d="m24.5 0 3.3 21.2L49 24.5l-21.2 3.3L24.5 49l-3.3-21.2L0 24.5l21.2-3.3L24.5 0z"
+            >
+            </path>
+          </svg>
+          <svg
+            width="49"
+            height="49"
+            viewBox="0 0 49 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#160000"
+              d="m24.5 0 3.3 21.2L49 24.5l-21.2 3.3L24.5 49l-3.3-21.2L0 24.5l21.2-3.3L24.5 0z"
+            >
+            </path>
+          </svg>
+        </li>
+      </ul><!-- .s__content -->
+    </div><!-- .s__block -->
+  </div><!-- .s__inner -->
+
+  <svg class="s__grid js-grid">
+    <path class="js-path" d=""></path>
+  </svg>
+
+  <canvas class="s__canvas js-canvas"></canvas>
+</section>
+
+<script>
+  import Emitter from '../utils/Emitter'
+  import Ticker from '../utils/Ticker'
+
+  class Section {
+    el: HTMLElement
+    inner: HTMLElement
+    svg: HTMLElement
+    path: HTMLElement
+    canvas: HTMLCanvasElement
+    ctx: CanvasRenderingContext2D
+    awards: NodeListOf<HTMLElement>
+
+    smileyImages: {
+      main: HTMLImageElement
+      contrasted: HTMLImageElement
+    }
+
+    bounding: {
+      left: number
+      top: number
+      width: number
+      height: number
+      innerWidth: number
+      innerHeight: number
+      offsetY: number
+    }
+
+    scroll: {
+      start: number
+      end: number
+      p: number
+      sp: number
+    }
+
+    lines: any[]
+    smileys: any[]
+
+    isPaused: boolean
+    isForced: boolean
+
+    /**
+     * Constructor
+     */
+    constructor() {
+      // Elements
+      this.el = document.querySelector('.s-about')
+      this.inner = this.el.querySelector('.js-inner')
+      this.svg = this.el.querySelector('.js-grid')
+      this.path = this.el.querySelector('.js-path')
+      ;(this.canvas = document.querySelector('.js-canvas')),
+        (this.ctx = this.canvas.getContext('2d'))
+      this.awards = this.el.querySelectorAll('.js-award')
+
+      // Properties
+      this.lines = []
+      this.smileys = []
+
+      this.isPaused = true
+      this.isForced = false
+
+      // Init
+      if (document.readyState === 'complete') {
+        Ticker.nextTick(this.init, this)
+      } else {
+        Emitter.once('siteLoaded', this.init, this)
+      }
+    }
+
+    /**
+     * Init
+     */
+    init() {
+      this.createSmiley()
+
+      this.setSize()
+      this.setScroll()
+
+      this.bindEvents()
+
+      if (this.el.classList.contains('is-in-view') && this.isPaused) {
+        this.isPaused = false
+        Emitter.on('tick', this.tick, this)
+      }
+    }
+
+    /**
+     * Bind events
+     */
+    bindEvents() {
+      Emitter.on('resize', this.onResize, this)
+      Emitter.on('scroll', this.onScroll, this)
+
+      // Reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed')
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        {
+          threshold: 0.5,
+        }
+      )
+
+      this.awards.forEach((award) => {
+        observer.observe(award)
+
+        const awardInteraction = this.onAwardInteraction.bind(this, award)
+        award.addEventListener('mouseenter', awardInteraction, {
+          passive: true,
+        })
+        award.addEventListener('touchstart', awardInteraction, {
+          passive: true,
+        })
+      })
+
+      this.el.addEventListener('intersect', this.onIntersect.bind(this), {
+        passive: true,
+      })
+    }
+
+    /**
+     * Resize handler
+     */
+    onResize(widthChanged, heightChanged) {
+      if (widthChanged) {
+        this.setSize()
+        this.setScroll()
+
+        this.isForced = true
+      }
+    }
+
+    /**
+     * Scroll handler
+     */
+    onScroll(scrollY) {
+      const { scroll } = this
+
+      const trigger = scrollY + window.safeHeight
+
+      if (trigger < scroll.start) {
+        scroll.p = 0
+      } else if (trigger > scroll.end) {
+        scroll.p = 1
+      } else {
+        scroll.p = (trigger - scroll.start) / (scroll.end - scroll.start)
+      }
+    }
+
+    /**
+     * Intersect handler
+     */
+    onIntersect(e) {
+      this.isPaused = !e.detail.isIntersecting
+
+      if (this.isPaused) {
+        Emitter.off('tick', this.tick, this)
+      } else {
+        Emitter.on('tick', this.tick, this)
+      }
+    }
+
+    /**
+     * Award interaction handler
+     */
+    onAwardInteraction(award) {
+      award.classList.add('is-active')
+
+      this.throwSmileys(award)
+
+      setTimeout(() => {
+        award.classList.remove('is-active')
+      }, 100)
+    }
+
+    /**
+     * Create smiley
+     */
+    createSmiley() {
+      const mainImg = new Image(100, 100)
+      mainImg.src = '/images/asset-smiley--main.svg'
+
+      const contrastedImg = new Image(100, 100)
+      contrastedImg.src = '/images/asset-smiley--contrasted.svg'
+
+      this.smileyImages = {
+        main: mainImg,
+        contrasted: contrastedImg,
+      }
+    }
+
+    /**
+     * Set size
+     */
+    setSize() {
+      const { canvas, svg } = this
+
+      const bounding = this.el.getBoundingClientRect()
+
+      this.bounding = {
+        left: bounding.left,
+        top: bounding.top,
+        width: this.el.clientWidth,
+        height: this.el.clientHeight,
+        innerWidth: this.inner.clientWidth,
+        innerHeight: this.inner.clientHeight,
+        offsetY: 0,
+      }
+
+      svg.style.width = `${this.bounding.width}px`
+      svg.style.height = `${this.bounding.height}px`
+
+      canvas.width = this.bounding.width
+      canvas.height = this.bounding.height
+    }
+
+    /**
+     * Set scroll
+     */
+    setScroll() {
+      const { bounding } = this
+
+      this.scroll = {
+        start: bounding.top + window.scrollY,
+        end:
+          bounding.top + window.scrollY + bounding.height + window.safeHeight,
+        p: 0,
+        sp: 0,
+      }
+
+      this.onScroll(window.scrollY)
+      this.scroll.sp = this.scroll.p
+    }
+
+    /**
+     * Set lines
+     */
+    setLines() {
+      const { bounding } = this
+
+      this.lines = []
+
+      // Calculate gaps and inner position
+      const innerX = (bounding.width - bounding.innerWidth) / 2
+      const innerY =
+        (bounding.height - bounding.innerHeight) / 2 + bounding.offsetY
+
+      const vLines = window.safeWidth > 767 ? 12 : 8
+      const hLines = 4
+
+      const outerGapX = bounding.width / vLines
+      const outerGapY = bounding.height / vLines
+      const innerGapX = bounding.innerWidth / vLines
+      const innerGapY = bounding.innerHeight / vLines
+      const hGap = 1 / hLines
+
+      // Corner lines
+      const outer = {
+        x1: 0,
+        x2: bounding.width,
+        y1: 0,
+        y2: bounding.height,
+      }
+      const inner = {
+        x1: innerX,
+        x2: innerX + bounding.innerWidth,
+        y1: innerY,
+        y2: innerY + bounding.innerHeight,
+      }
+      const corners = []
+
+      // Top left
+      corners.push([
+        { x: outer.x1, y: outer.y1 },
+        { x: inner.x1, y: inner.y1 },
+      ])
+
+      // Top right
+      corners.push([
+        { x: outer.x2, y: outer.y1 },
+        { x: inner.x2, y: inner.y1 },
+      ])
+
+      // Bottom right
+      corners.push([
+        { x: outer.x2, y: outer.y2 },
+        { x: inner.x2, y: inner.y2 },
+      ])
+
+      // Bottom left
+      corners.push([
+        { x: outer.x1, y: outer.y2 },
+        { x: inner.x1, y: inner.y2 },
+      ])
+
+      // Top & bottom lines, vertical
+      for (let i = 1; i < vLines; i++) {
+        this.lines.push([
+          { x: outerGapX * i, y: outer.y1 },
+          { x: innerX + innerGapX * i, y: inner.y1 },
+        ])
+
+        this.lines.push([
+          { x: outerGapX * i, y: outer.y2 },
+          { x: innerX + innerGapX * i, y: inner.y2 },
+        ])
+      }
+
+      // Top lines, horizontal
+      for (let i = 1; i < hLines; i++) {
+        const index = 1 - Math.pow(1 - hGap * i, 2)
+
+        const l1 = corners[0]
+        const l2 = corners[1]
+
+        // Get a point at i * hGap
+        const p1 = {
+          x: l1[0].x + (l1[1].x - l1[0].x) * index,
+          y: l1[0].y + (l1[1].y - l1[0].y) * index,
+        }
+
+        const p2 = {
+          x: l2[0].x + (l2[1].x - l2[0].x) * index,
+          y: l2[0].y + (l2[1].y - l2[0].y) * index,
+        }
+
+        this.lines.push([p1, p2])
+      }
+
+      // Bottom lines, horizontal
+      for (let i = 1; i < hLines; i++) {
+        const index = 1 - Math.pow(1 - hGap * i, 2)
+
+        const l1 = corners[3]
+        const l2 = corners[2]
+
+        // Get a point at i * hGap
+        const p1 = {
+          x: l1[0].x + (l1[1].x - l1[0].x) * index,
+          y: l1[0].y + (l1[1].y - l1[0].y) * index,
+        }
+
+        const p2 = {
+          x: l2[0].x + (l2[1].x - l2[0].x) * index,
+          y: l2[0].y + (l2[1].y - l2[0].y) * index,
+        }
+
+        this.lines.push([p1, p2])
+      }
+
+      // Right & left lines, vertical
+      for (let i = 0; i <= vLines; i++) {
+        this.lines.push([
+          { x: outer.x1, y: outerGapY * i },
+          { x: inner.x1, y: innerY + innerGapY * i },
+        ])
+
+        this.lines.push([
+          { x: outer.x2, y: outerGapY * i },
+          { x: inner.x2, y: innerY + innerGapY * i },
+        ])
+      }
+
+      // Right lines, horizontal
+      for (let i = 1; i < hLines; i++) {
+        const index = 1 - Math.pow(1 - hGap * i, 2)
+
+        const l1 = corners[1]
+        const l2 = corners[2]
+
+        // Get a point at i * hGap
+        const p1 = {
+          x: l1[0].x + (l1[1].x - l1[0].x) * index,
+          y: l1[0].y + (l1[1].y - l1[0].y) * index,
+        }
+
+        const p2 = {
+          x: l2[0].x + (l2[1].x - l2[0].x) * index,
+          y: l2[0].y + (l2[1].y - l2[0].y) * index,
+        }
+
+        this.lines.push([p1, p2])
+      }
+
+      // Left lines, horizontal
+      for (let i = 1; i < hLines; i++) {
+        const index = 1 - Math.pow(1 - hGap * i, 2)
+
+        const l1 = corners[0]
+        const l2 = corners[3]
+
+        // Get a point at i * hGap
+        const p1 = {
+          x: l1[0].x + (l1[1].x - l1[0].x) * index,
+          y: l1[0].y + (l1[1].y - l1[0].y) * index,
+        }
+
+        const p2 = {
+          x: l2[0].x + (l2[1].x - l2[0].x) * index,
+          y: l2[0].y + (l2[1].y - l2[0].y) * index,
+        }
+
+        this.lines.push([p1, p2])
+      }
+
+      this.drawLines()
+    }
+
+    /**
+     * Draw lines
+     */
+    drawLines() {
+      let d = ''
+
+      this.lines.forEach((points) => {
+        let p1 = points[0]
+        let p2 = points[1]
+
+        d += 'M ' + p1.x + ' ' + p1.y + ' L ' + p2.x + ' ' + p2.y + ' '
+      })
+
+      this.path.setAttribute('d', d)
+    }
+
+    /**
+     * Throw smileys
+     */
+    throwSmileys(award) {
+      const { el, ctx, smileyImages, smileys } = this
+
+      const image = document.documentElement.classList.contains(
+        'theme-contrasted'
+      )
+        ? smileyImages.contrasted
+        : smileyImages.main
+
+      const elBounding = el.getBoundingClientRect()
+      const awardBounding = award.getBoundingClientRect()
+
+      const x = awardBounding.left + awardBounding.width * 0.5 - elBounding.left
+      const y = awardBounding.top + awardBounding.height * 0.5 - elBounding.top
+
+      const maxSmileys = window.safeWidth > 767 ? 10 : 5
+      for (let i = 0; i < maxSmileys; i++) {
+        const smiley = new Smiley(ctx, image, x, y)
+
+        smileys.push(smiley)
+      }
+    }
+
+    /**
+     * Move smileys
+     */
+    moveSmileys() {
+      const { bounding, smileys } = this
+
+      smileys.forEach((smiley) => {
+        smiley.move()
+
+        if (smiley.y > bounding.height) {
+          smileys.splice(smileys.indexOf(smiley), 1)
+        }
+      })
+    }
+
+    /**
+     * Draw canvas
+     */
+    drawCanvas() {
+      const { bounding, ctx, smileys } = this
+
+      ctx.fillStyle = 'red'
+
+      ctx.clearRect(0, 0, bounding.width, bounding.height)
+
+      smileys.forEach((smiley) => {
+        smiley.draw()
+      })
+    }
+
+    /**
+     * Tick
+     */
+    tick() {
+      const { bounding, el, scroll } = this
+
+      // Smooth scroll
+      scroll.sp += (scroll.p - scroll.sp) * 0.2
+      const sd = Math.round((scroll.p - scroll.sp) * 1000) / 1000
+
+      bounding.offsetY =
+        (window.safeWidth > 767 ? 400 : 200) * (this.scroll.sp * 2 - 1)
+
+      el.style.setProperty('--offset-y', `${this.bounding.offsetY}px`)
+
+      // Lines
+      if (sd !== 0 || this.isForced) {
+        this.setLines()
+        this.drawLines()
+      }
+
+      // Smileys
+      if (this.smileys.length) {
+        this.moveSmileys()
+        this.drawCanvas()
+      }
+
+      this.isForced = false
+    }
+  }
+
+  class Smiley {
+    ctx: CanvasRenderingContext2D
+    image: HTMLImageElement
+
+    width: number
+    height: number
+    x: number
+    y: number
+    r: number
+    a: number
+    va: number
+    vx: number
+    vy: number
+    vr: number
+
+    /**
+     * Constructor
+     */
+    constructor(ctx, image, x, y) {
+      // Elements
+      this.ctx = ctx
+      this.image = image
+
+      // Properties
+      this.width = 48
+      this.height = 48
+      this.x = x
+      this.y = y
+      this.r = 0
+      this.a = 0.25 + Math.random() * 0.75
+      this.vx = (Math.random() * 2 - 1) * 5
+      this.vy = Math.random() * -10 - 5
+      this.vr = (Math.random() * 2 - 1) * 10
+      this.va = Math.random() * 0.01
+    }
+
+    /**
+     * Move smiley
+     */
+    move() {
+      this.vy += 0.45
+
+      this.x += this.vx
+      this.y += this.vy
+      this.r += this.vr
+      this.a += this.va
+    }
+
+    /**
+     * Draw smiley
+     */
+    draw() {
+      const { ctx, image } = this
+
+      ctx.save()
+
+      ctx.translate(
+        this.x + this.width * 0.5 * this.a,
+        this.y + this.height * 0.5 * this.a
+      )
+
+      ctx.rotate((this.r * Math.PI) / 180)
+
+      ctx.translate(
+        -this.x - this.width * 0.5 * this.a,
+        -this.y - this.height * 0.5 * this.a
+      )
+
+      ctx.drawImage(
+        image,
+        this.x,
+        this.y,
+        this.width * this.a,
+        this.height * this.a
+      )
+
+      ctx.restore()
+    }
+  }
+
+  new Section()
+</script>
+
+<style lang="scss">
+  .s-about {
+    --width: 39.25rem;
+
+    position: relative;
+    z-index: 3;
+
+    padding: 15rem 0;
+
+    overflow: hidden;
+
+    @include mq(desktop-xs) {
+      --width: 32rem;
+    }
+
+    @include mq(tablet-sm) {
+      --width: 70vw;
+
+      padding: 7.5rem 0;
+    }
+
+    @include mq(phone) {
+      --width: 80vw;
+    }
+
+    .s__inner {
+      position: relative;
+      z-index: 2;
+
+      margin: 0 auto;
+      width: var(--width);
+
+      border: 1px solid color(secondary);
+
+      transform: translate3d(0, var(--offset-y), 0);
+
+      will-change: transform;
+    }
+
+    .s__title {
+      margin: 0;
+      padding: 0 0 2px;
+
+      background: color(secondary);
+
+      color: color(primary);
+      font: 700 12px / 24px font-family(fraktion);
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .s__content {
+      padding: 4.5rem;
+
+      font: 200 2rem / 1.5 font-family(editorial);
+
+      @include mq(desktop-xs) {
+        font-size: 1.5rem;
+      }
+
+      @include mq(phone) {
+        padding: 15vw 10vw;
+      }
+
+      a {
+        position: relative;
+        display: inline-block;
+
+        color: color(secondary);
+        text-decoration: none;
+
+        &:before,
+        &:after {
+          position: absolute;
+          bottom: 0.2em;
+          left: 0;
+
+          display: block;
+          width: 100%;
+          height: 1px;
+
+          background: currentcolor;
+
+          content: '';
+        }
+
+        &:after {
+          height: 2px;
+
+          transform: scaleX(0);
+          transform-origin: 100% 50%;
+
+          transition: transform 0.4s ease(in-out-quint);
+        }
+
+        &:hover {
+          &:after {
+            transform: scaleX(1);
+            transform-origin: 0 50%;
+          }
+        }
+      }
+    }
+
+    .s__awards {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, calc(var(--width) / 4));
+      grid-template-rows: repeat(8, calc(var(--width) / 4 / 0.751));
+
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 1px,
+        map.get($theme-colors, 'default', 'secondary') 1.5px,
+        map.get($theme-colors, 'default', 'secondary') 2.5px,
+        transparent 3px,
+        map.get($theme-colors, 'default', 'primary') 11px
+      );
+
+      list-style: none;
+      overflow: hidden;
+
+      @include mq(tablet-sm) {
+        grid-template-columns: repeat(4, calc(var(--width) / 4));
+        grid-template-rows: repeat(10, calc(var(--width) / 4 / 0.75));
+      }
+
+      @at-root :global(.theme-contrasted) & {
+        background: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 1px,
+          map.get($theme-colors, 'contrasted', 'secondary') 1.5px,
+          map.get($theme-colors, 'contrasted', 'secondary') 2.5px,
+          transparent 3px,
+          map.get($theme-colors, 'contrasted', 'primary') 11px
+        );
+      }
+
+      .s__award {
+        position: relative;
+        z-index: 2;
+
+        margin: 0;
+        padding: 0.75rem;
+
+        background: color(primary);
+        clip-path: inset(-1px);
+        cursor: default;
+
+        will-change: transform;
+
+        &:before {
+          position: absolute;
+          top: -1px;
+          right: 0;
+          bottom: 0;
+          left: -1px;
+
+          border: 1px solid color(secondary);
+
+          content: '';
+        }
+
+        &__inner {
+          position: relative;
+
+          display: block;
+          width: 100%;
+          height: 100%;
+
+          translate: -50% 0;
+
+          transition:
+            translate 1s ease(out-quint),
+            scale 1.5s ease(in-out-quint);
+
+          will-change: translate, scale;
+        }
+
+        &__mask {
+          position: absolute;
+          top: -1px;
+          right: -1px;
+          bottom: -1px;
+          left: -1px;
+
+          background: color(secondary);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+          transition: clip-path 0.8s ease(in-out-quint);
+
+          will-change: clip-path;
+
+          &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            background: color(primary);
+            mask: url('/images/asset-star.svg') center / 1.5rem 1.5rem no-repeat;
+
+            transition: transform 0.8s ease(in-cubic);
+            will-change: transform;
+
+            content: '';
+          }
+        }
+
+        &__name {
+          font: 700 6.5625rem / 0.82 font-family(bigger);
+          word-break: break-word;
+          text-transform: uppercase;
+
+          @include mq(desktop-xs) {
+            font-size: 5rem;
+          }
+
+          @include mq(phone) {
+            font-size: 4rem;
+          }
+
+          @include mq(phone-xs) {
+            font-size: 3.75rem;
+          }
+        }
+
+        &__counter {
+          font: 200 1.25rem / 1.3 font-family(editorial);
+
+          @include mq(desktop-xs) {
+            font-size: 1.15rem;
+          }
+
+          @include mq(phone) {
+            font-size: 1.1rem;
+          }
+        }
+
+        &__text {
+          display: block;
+          margin: 0.25em 0 0;
+
+          font: 200 2.25rem / 1.13 font-family(editorial);
+          text-align: center;
+          text-wrap: balance;
+
+          @include mq(desktop-xs) {
+            font-size: 1.75rem;
+          }
+
+          @include mq(tablet-sm) {
+            font-size: 1.5rem;
+          }
+
+          @include mq(phone) {
+            font-size: 1.25rem;
+          }
+
+          @include mq(phone-sm) {
+            font-size: 1.15rem;
+          }
+        }
+
+        &--counter {
+          .s__award__inner {
+            @include flex(column, flex-start, flex-end);
+          }
+        }
+
+        &--text {
+          .s__award__inner {
+            @include flex(column, center, center);
+          }
+        }
+
+        &--webby2025 {
+          grid-column: 1 / 5;
+          grid-row: 1 / 2;
+        }
+
+        &--awwwards {
+          grid-column: 1 / 3;
+          grid-row: 2 / 4;
+
+          @include mq(tablet-sm) {
+            grid-column: 1 / 3;
+            grid-row: 2 / 4;
+          }
+
+          .s__award__name {
+            font-size: 8.625rem;
+
+            @include mq(desktop-xs) {
+              font-size: 6.5rem;
+            }
+
+            @include mq(tablet-sm) {
+              font-size: 5.5rem;
+            }
+
+            @include mq(phone) {
+              font-size: 4rem;
+            }
+
+            @include mq(phone-sm) {
+              font-size: 3.5rem;
+            }
+          }
+        }
+
+      &--netMag2016 {
+        grid-column: 3 / 5;
+        grid-row: 2 / 3;
+
+        @include mq(tablet-sm) {
+          grid-column: 3 / 5;
+          grid-row: 2 / 3;
+        }
+      }
+
+        &--commArt2017 {
+          grid-column: 1 / 5;
+          grid-row: 4 / 5;
+
+          @include mq(tablet-sm) {
+            grid-column: 1 / 5;
+            grid-row: 8 / 9;
+          }
+        }
+
+        &--fwa {
+          grid-column: 4 / 5;
+          grid-row: 3 / 4;
+
+          @include mq(tablet-sm) {
+            grid-column: 3 / 6;
+            grid-row: 4 / 6;
+          }
+        }
+
+        &--gsapOct2024 {
+          grid-column: 1 / 3;
+          grid-row: 6 / 7;
+
+          @include mq(tablet-sm) {
+            grid-column: 1 / 3;
+            grid-row: 4 / 5;
+          }
+        }
+
+        &--gsapNov2024 {
+          grid-column: 3 / 5;
+          grid-row: 6 / 7;
+
+          @include mq(tablet-sm) {
+            grid-column: 3 / 5;
+            grid-row: 6 / 7;
+          }
+        }
+
+        &--cssda {
+          grid-column: 2 / 4;
+          grid-row: 5 / 6;
+
+          @include mq(tablet-sm) {
+            grid-column: 1 / 3;
+            grid-row: 6 / 8;
+          }
+        }
+
+        &--CSSDA2016 {
+          grid-column: 2 / 5;
+          grid-row: 7 / 8;
+
+          @include mq(tablet-sm) {
+            grid-column: 1 / 4;
+            grid-row: 9 / 10;
+          }
+        }
+
+        &--CSSDA2015 {
+          grid-column: 1 / 4;
+          grid-row: 8 / 9;
+
+          @include mq(tablet-sm) {
+            grid-column: 2 / 5;
+            grid-row: 10 / 11;
+          }
+
+          &:before {
+            bottom: -1px;
+          }
+        }
+
+        &--blank {
+          grid-column: 1 / 2;
+          grid-row: 5 / 6;
+
+          @include mq(tablet-sm) {
+            grid-column: 3 / 5;
+            grid-row: 7 / 8;
+          }
+
+          &:after {
+            display: none;
+          }
+
+          svg {
+            position: absolute;
+
+            &:nth-child(1) {
+              top: 50%;
+              left: 50%;
+
+              width: 62.538%;
+              height: 53.1333%;
+
+              transform: translate(-50%, -50%);
+
+              path {
+                fill: none;
+                stroke: color(secondary);
+                stroke-width: 1px;
+              }
+            }
+
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5) {
+              position: absolute;
+
+              width: 12.1203%;
+              height: auto;
+
+              path {
+                fill: color(secondary);
+                stroke: none;
+              }
+            }
+
+            &:nth-child(2) {
+              top: 0.5rem;
+              left: 0.5rem;
+            }
+
+            &:nth-child(3) {
+              top: 0.5rem;
+              right: 0.5rem;
+            }
+
+            &:nth-child(4) {
+              bottom: 0.5rem;
+              left: 0.5rem;
+            }
+
+            &:nth-child(5) {
+              bottom: 0.5rem;
+              right: 0.5rem;
+            }
+          }
+
+          path {
+            fill: none;
+            stroke: color(secondary);
+            stroke-width: 1px;
+          }
+        }
+
+        &.is-active {
+          .s__award__inner {
+            scale: 0.9;
+
+            transition: scale 0.1s ease(out-quint);
+          }
+        }
+
+        &.is-revealed {
+          .s__award__inner {
+            translate: 0 0;
+          }
+
+          .s__award__mask {
+            clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+
+            &:before {
+              transform: translate3d(50%, 0, 0);
+            }
+          }
+        }
+      }
+    }
+
+    .s__grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+
+      path {
+        fill: none;
+        stroke: color(secondary);
+        stroke-width: 1px;
+      }
+    }
+
+    .s__canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 3;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+    }
+
+    &.is-out-of-view {
+      .s__inner {
+        transform: none;
+        will-change: none;
+      }
+
+      .s__grid,
+      .s__canvas {
+        display: none;
+      }
+    }
+  }
+</style>

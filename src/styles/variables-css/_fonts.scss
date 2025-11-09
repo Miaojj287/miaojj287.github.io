@@ -1,0 +1,71 @@
+/**
+ * Fonts variables
+ */
+@use "sass:list";
+@use "sass:map";
+@use "../variables-scss/fonts" as *;
+@use "../helpers/responsive" as *;
+
+/* CSS properties */
+:root {
+  // Font families
+  @each $variable, $font-family in $theme-font-families {
+    $alias: map.get($theme-font-families, $font-family);
+
+    @if $alias {
+      --font-family-#{$variable}: var(--font-family-#{$font-family});
+    } @else {
+      --font-family-#{$variable}: #{$font-family};
+    }
+  }
+
+  // Font sizes
+  @each $breakpoint, $styles in $theme-font-styles {
+    @include mq($breakpoint) {
+      @each $key, $values in $styles {
+        // Size
+        $size: list.nth($values, 1);
+
+        @if $size {
+          --font-size-#{$key}: #{$size};
+        }
+
+        // Weight
+        @if list.length($values) >= 2 {
+          $weight: list.nth($values, 2);
+
+          @if $weight {
+            --font-weight-#{$key}: #{$weight};
+          }
+        }
+
+        // Line height
+        @if list.length($values) >= 3 {
+          $height: list.nth($values, 3);
+
+          @if $height {
+            --font-height-#{$key}: #{$height};
+          }
+        }
+
+        // Family
+        @if list.length($values) >= 4 {
+          $family: list.nth($values, 4);
+
+          @if $family {
+            --font-family-#{$key}: var(--font-family-#{$family});
+          }
+        }
+
+        // Letter spacing
+        @if list.length($values) >= 5 {
+          $spacing: list.nth($values, 5);
+
+          @if $spacing {
+            --font-spacing-#{$key}: #{$spacing};
+          }
+        }
+      }
+    }
+  }
+}

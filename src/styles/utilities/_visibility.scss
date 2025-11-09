@@ -1,0 +1,17 @@
+/**
+ * Visibility utility classes
+ */
+
+/* Visually hidden element but readable by screen readers and robots */
+.u-sr-only {
+  position: absolute;
+
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+
+  border: 0;
+  clip-path: rect(0, 0, 0, 0);
+  overflow: hidden;
+}

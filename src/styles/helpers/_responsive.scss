@@ -1,0 +1,17 @@
+/**
+ * Responsive design mixins
+ */
+@use "sass:map";
+@use "../variables-scss/breakpoints" as *;
+
+/* Media queries */
+@mixin mq($breakpoint) {
+  @if $breakpoint == 'default' {
+    @content;
+  } @else {
+    $query: map.get($theme-breakpoints, $breakpoint);
+    @media #{$query} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/**
+ * Breakpoints variables
+ */
+@use "sass:map";
+
+$theme-breakpoints: (
+  desktop-xl: 'only screen and (min-width: 2000px)',
+  desktop-lg: 'only screen and (max-width: 1680px)',
+  desktop-md: 'only screen and (max-width: 1530px)',
+  desktop-sm: 'only screen and (max-width: 1280px)',
+  desktop-xs: 'only screen and (max-width: 1080px)',
+  tablet: 'only screen and (max-width: 987px)',
+  tablet-portrait: 'only screen and (max-width: 987px) and (orientation: portrait)',
+  tablet-landscape: 'only screen and (max-width: 987px) and (orientation: landscape)',
+  tablet-sm: 'only screen and (max-width: 767px)',
+  phone: 'only screen and (max-width: 767px) and (orientation: landscape), only screen and (max-width: 576px)',
+  phone-landscape: 'only screen and (max-width: 767px) and (orientation: landscape)',
+  sm-height: 'only screen and (max-height:480px)',
+  phone-sm: 'only screen and (max-width:400px)',
+  phone-xs: 'only screen and (max-width:360px)'
+);

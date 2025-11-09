@@ -1,0 +1,1426 @@
+---
+import { Image } from 'astro:assets'
+
+const frames = [
+  {
+    caption: 'Generative art poster concept',
+    src: import('/src/assets/frames/art-1987.jpg'),
+  },
+  {
+    caption: 'Generative art poster concept',
+    src: import('/src/assets/frames/art-dtyw.jpg'),
+  },
+  {
+    caption: 'Generative art poster concept',
+    src: import('/src/assets/frames/art-lines.jpg'),
+  },
+  {
+    caption: 'My first FOTD on FWA  ♥ (2012)',
+    src: import('/src/assets/frames/first-fwa.jpg'),
+  },
+  {
+    caption: 'Roaaaar!',
+    src: import('/src/assets/frames/roar.jpg'),
+  },
+  {
+    caption: 'Early age (2006) desk setup ',
+    src: import('/src/assets/frames/setup-2006.jpg'),
+  },
+  {
+    caption: '2016 desk setup',
+    src: import('/src/assets/frames/setup-2016.jpg'),
+  },
+  {
+    caption: '2020 desk setup',
+    src: import('/src/assets/frames/setup-2020.jpg'),
+  },
+  {
+    caption: 'Waaark Creative Robots',
+    src: import('/src/assets/frames/waaark.png'),
+  },
+  {
+    caption: '2011 portfolio',
+    src: import('/src/assets/frames/portfolio-2011.jpg'),
+  },
+  {
+    caption: '2014 portfolio',
+    src: import('/src/assets/frames/portfolio-2014.jpg'),
+  },
+  {
+    caption: '2017 portfolio (never released)',
+    src: import('/src/assets/frames/portfolio-2017.jpg'),
+  },
+  {
+    caption: '2021 portfolio',
+    src: import('/src/assets/frames/portfolio-2021.jpg'),
+  },
+  {
+    caption: 'Legos ♥',
+    src: import('/src/assets/frames/legos.jpg'),
+  },
+]
+---
+
+<section class="s-my-way" data-intersect>
+  <svg
+    class="s__smiley js-smiley"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 77.8 77.8"
+    xml:space="preserve"
+  >
+    <circle cx="38.9" cy="38.9" r="38.9"></circle>
+
+    <path
+      d="M38.9 77.8c-2 0-4.1-.2-6.2-.5C11.6 73.9-2.9 53.9.5 32.8 2.1 22.5 7.7 13.5 16.1 7.4c8.4-6.1 18.7-8.5 29-6.9 10.3 1.6 19.3 7.2 25.4 15.6 6.1 8.4 8.5 18.7 6.9 29-3.1 19.1-19.7 32.7-38.5 32.7zM38.8 1c-7.9 0-15.6 2.5-22.1 7.2C8.5 14.1 3.1 22.9 1.5 32.9-1.8 53.5 12.3 73 32.9 76.3 53.5 79.6 73 65.5 76.3 44.9l.5.1-.5-.1c1.6-10-.8-20-6.7-28.2S54.9 3.1 44.9 1.5c-2-.3-4.1-.5-6.1-.5zM25.5 23.1c-1.9 0-3.5 2-4.1 5.1l-.1.3 3 2.2-2.9 2.2.1.3c.6 2.5 1.5 5.1 4.1 5.1 2.4 0 4.2-3.3 4.2-7.6s-2.4-7.6-4.3-7.6zm26.6 0c-1.9 0-3.5 2-4.1 5.1v.3l3 2.2-3 2.2.1.3c.6 2.5 1.5 5.1 4.1 5.1 2.4 0 4.2-3.3 4.2-7.6s-2.3-7.6-4.3-7.6zM62 39c0-.3-.2-.5-.5-.5s-.5.2-.5.5c0 12.2-9.9 22.1-22.1 22.1-12.2 0-22.1-9.9-22.1-22.1 0-.3-.2-.5-.5-.5s-.5.2-.5.5c0 12.7 10.4 23.1 23.1 23.1S62 51.7 62 39z"
+    >
+    </path>
+  </svg>
+
+  <div class="s__objects js-objects">
+    {
+      frames.map((frame, index) => (
+        <div class="a-object a-object--frame">
+          <figure class="a__inner">
+            <Image src={frame.src} alt={frame.caption} class="a__img" />
+            {/* <img
+              loading="lazy"
+              class="a__img"
+              src={frame.src}
+              alt={frame.caption}
+            /> */}
+
+            <figcaption class="a__caption" set:html={frame.caption} />
+          </figure>
+
+          <div class="a__side a__side--vertical" />
+          <div class="a__side a__side--horizontal" />
+        </div>
+      ))
+    }
+
+    {
+      Array(10)
+        .fill(0)
+        .map((index) => (
+          <div class="a-object a-object--star">
+            <div class="a__side a__side--top-left" />
+            <div class="a__side a__side--top-right" />
+            <div class="a__side a__side--bottom-left" />
+            <div class="a__side a__side--bottom-right" />
+          </div>
+        ))
+    }
+
+    <div class="s__ruler js-ruler"></div>
+  </div><!-- .s__objects -->
+
+  <div class="s__catcher">
+    <div class="s__catcher__distorted-wrapper">
+      <div class="s__catcher__distorted">
+        <div class="s__catcher__text s__catcher__text--distorted">
+          Remember <br />
+          not to <br />
+          steal <br />
+          this
+        </div>
+      </div><!-- .s__catcher__distorted -->
+    </div><!-- .s__catcher__distorted-wrapper -->
+
+    <div class="s__catcher__normal-wrapper">
+      <div class="s__catcher__normal">
+        <div class="s__catcher__text s__catcher__text--normal">
+          Remember <br />
+          not to <br />
+          steal <br />
+          this
+        </div>
+      </div><!-- .s__catcher__normal -->
+    </div><!-- .s__catcher__normal-wrapper -->
+  </div><!-- .s__catcher -->
+
+  <svg class="s__svg js-svg">
+    <path class="s__svg__circular-path js-lines-circular-path" d=""></path>
+  </svg>
+</section>
+
+<script>
+  import Emitter from '../utils/Emitter'
+  import Ticker from '../utils/Ticker'
+
+  class Section {
+    el: HTMLElement
+    svg: HTMLElement
+    objectsWrapper: HTMLElement
+    ruler: HTMLElement
+
+    objects: any[]
+    canThrow: boolean
+    lastThrow: number
+    throwDelay: number
+    thrownObjects: any[]
+    draggedObject: any
+
+    smiley: {
+      el: HTMLElement
+      bounding: DOMRect
+      rel: {
+        x: number
+        y: number
+      }
+    }
+
+    lines: {
+      circularPath: HTMLElement
+      lines: any[]
+    }
+
+    bounding: {
+      left: number
+      top: number
+      width: number
+      height: number
+    }
+
+    scroll: {
+      start: number
+      end: number
+      p: number
+      sp: number
+    }
+
+    mouse: {
+      x: number
+      y: number
+      oy: number
+      sx: number
+      sy: number
+      d: number
+      set: boolean
+    }
+
+    lastTouch: number
+
+    isPaused: boolean
+
+    /**
+     * Constructor
+     */
+    constructor() {
+      // Elements
+      this.el = document.querySelector('.s-my-way')
+      this.svg = this.el.querySelector('.js-svg')
+      this.objectsWrapper = this.el.querySelector('.js-objects')
+      this.ruler = this.el.querySelector('.js-ruler')
+
+      // Properties
+      this.objects = []
+      Array.from(this.objectsWrapper.children).forEach((el) => {
+        this.objects.push(new Object(el, this))
+      })
+
+      this.canThrow = false
+      this.lastThrow = 0
+      this.throwDelay = 2000
+      this.thrownObjects = []
+      this.draggedObject = null
+
+      this.smiley = {
+        el: this.el.querySelector('.js-smiley'),
+        bounding: null,
+        rel: {
+          x: 0,
+          y: 0,
+        },
+      }
+
+      this.lines = {
+        circularPath: this.el.querySelector('.js-lines-circular-path'),
+        lines: [],
+      }
+
+      this.mouse = {
+        x: 0,
+        y: 0,
+        oy: 0,
+        sx: 0,
+        sy: 0,
+        d: 0,
+        set: false,
+      }
+
+      this.isPaused = true
+
+      // Init
+      if (document.readyState === 'complete') {
+        Ticker.nextTick(this.init, this)
+      } else {
+        Emitter.once('siteLoaded', this.init, this)
+      }
+    }
+
+    /**
+     * Init
+     */
+    init() {
+      this.setSize()
+      this.setScroll()
+      this.setLines()
+
+      this.bindEvents()
+
+      this.firstObjects()
+    }
+
+    /**
+     * Bind events
+     */
+    bindEvents() {
+      Emitter.on('mousemove', this.onMouseMove, this)
+      Emitter.on('resize', this.onResize, this)
+      Emitter.on('scroll', this.onScroll, this)
+      Emitter.on('tick', this.tick, this)
+
+      this.objects.forEach((object) => {
+        object.el.addEventListener('mousedown', this.objectDragStart.bind(this))
+        object.el.addEventListener(
+          'touchstart',
+          this.objectDragStart.bind(this)
+        )
+      })
+      this.el.addEventListener('mouseup', this.objectDragEnd.bind(this))
+      this.el.addEventListener('touchend', this.objectDragEnd.bind(this))
+
+      this.objectsWrapper.addEventListener(
+        'touchmove',
+        this.onTouchMove.bind(this)
+      )
+
+      this.el.addEventListener('intersect', this.onIntersect.bind(this), {
+        passive: true,
+      })
+    }
+
+    /**
+     * Intersect handler
+     */
+    onIntersect(e) {
+      this.isPaused = !e.detail.isIntersecting
+      this.canThrow = e.detail.isIntersecting
+
+      if (!this.isPaused) {
+        this.thrownObjects.forEach((object) => {
+          object.isWaiting = false
+        })
+      }
+    }
+
+    /**
+     * Mouse handler
+     */
+    onMouseMove(x, y) {
+      this.updateMousePosition(x, y)
+    }
+
+    /**
+     * Touch handler
+     */
+    onTouchMove(e) {
+      e.preventDefault()
+
+      const delta = performance.now() - this.lastTouch
+      if (delta < Ticker.delta) return
+
+      const touch = e.touches[0]
+      this.updateMousePosition(touch.clientX, touch.clientY)
+
+      this.lastTouch = performance.now()
+    }
+
+    /**
+     * Update mouse position
+     */
+    updateMousePosition(x, y) {
+      const { mouse } = this
+
+      mouse.x = x - this.bounding.left
+      mouse.y = y - mouse.oy + window.scrollY
+
+      if (!mouse.set) {
+        mouse.sx = mouse.x
+        mouse.sy = mouse.y
+
+        mouse.set = true
+      }
+    }
+
+    /**
+     * Resize handler
+     */
+    onResize() {
+      this.setSize()
+      this.setScroll()
+      this.setLines()
+    }
+
+    /**
+     * Scroll handler
+     */
+    onScroll(scrollY) {
+      const { scroll } = this
+
+      const trigger = scrollY + window.safeHeight
+
+      if (trigger < scroll.start) {
+        scroll.p = 0
+      } else if (trigger > scroll.end) {
+        scroll.p = 1
+      } else {
+        scroll.p = (trigger - scroll.start) / (scroll.end - scroll.start)
+      }
+    }
+
+    /**
+     * Set size
+     */
+    setSize() {
+      const bounding = this.el.getBoundingClientRect()
+
+      this.bounding = {
+        left: bounding.left,
+        top: bounding.top,
+        width: bounding.width,
+        height: bounding.height,
+      }
+
+      this.svg.style.width = this.bounding.width + 'px'
+      this.svg.style.height = this.bounding.height + 'px'
+
+      this.smiley.bounding = this.smiley.el.getBoundingClientRect()
+      this.smiley.rel.x =
+        this.smiley.bounding.left -
+        this.bounding.left +
+        this.smiley.bounding.width / 2
+      this.smiley.rel.y =
+        this.smiley.bounding.top -
+        this.bounding.top +
+        this.smiley.bounding.height / 2
+
+      this.mouse.oy = this.bounding.top + window.scrollY
+
+      // Safari hack :(
+      const pOriginY = this.ruler.clientHeight
+      this.objectsWrapper.style.perspectiveOrigin = `50% ${pOriginY}px `
+    }
+
+    /**
+     * Set scroll
+     */
+    setScroll() {
+      const { bounding } = this
+
+      this.scroll = {
+        start: bounding.top + window.scrollY,
+        end:
+          bounding.top + window.scrollY + bounding.height + window.safeHeight,
+        p: 0,
+        sp: 0,
+      }
+
+      this.onScroll(window.scrollY)
+      this.scroll.sp = this.scroll.p
+    }
+
+    /**
+     * Set lines
+     */
+    setLines() {
+      const { lines, smiley, bounding } = this
+
+      // Lines
+      lines.lines = []
+
+      const vLines = window.safeWidth > 767 ? 12 : 8
+      const gapX = bounding.width / vLines
+
+      for (let i = 0; i <= vLines; i++) {
+        // Top lines
+        lines.lines.push({
+          p1: { x: gapX * i, y: 0 },
+          p2: { x: smiley.rel.x, y: smiley.rel.y },
+        })
+
+        // Bottom lines
+        lines.lines.push({
+          p1: { x: gapX * i, y: bounding.height },
+          p2: { x: smiley.rel.x, y: smiley.rel.y },
+        })
+      }
+
+      // Calculate angle
+      const dx = bounding.width
+      const dy = (bounding.height - smiley.rel.y) / 2
+
+      this.el.style.setProperty(
+        '--distortion',
+        String(Math.hypot(dx, dy) * 0.14)
+      )
+
+      // Side lines
+      const hLines = vLines
+      const gapY = bounding.height / hLines
+      const offsetY = (bounding.height - gapY * hLines) / 2
+
+      for (let i = 1; i < hLines; i++) {
+        // Left lines
+        lines.lines.push({
+          p1: { x: 0, y: offsetY + gapY * i },
+          p2: { x: smiley.rel.x, y: smiley.rel.y },
+        })
+
+        // Right lines
+        lines.lines.push({
+          p1: { x: bounding.width, y: offsetY + gapY * i },
+          p2: { x: smiley.rel.x, y: smiley.rel.y },
+        })
+      }
+
+      this.drawLines()
+    }
+
+    /**
+     * Draw lines
+     */
+    drawLines() {
+      const { lines, bounding } = this
+
+      let d = `M 0 ${bounding.height} L ${bounding.width} ${bounding.height}`
+
+      lines.lines.forEach((line) => {
+        d += `M ${line.p1.x} ${line.p1.y} L ${line.p2.x} ${line.p2.y} `
+      })
+
+      lines.circularPath.setAttribute('d', d)
+    }
+
+    /**
+     * Throw object
+     */
+    throwObject() {
+      if (this.objects.length > 0) {
+        const object = this.objects.splice(
+          Math.floor(Math.random() * this.objects.length),
+          1
+        )[0]
+
+        object.set()
+
+        this.thrownObjects.push(object)
+      }
+
+      this.lastThrow = performance.now()
+
+      const rate = window.safeWidth > 767 ? 1 : 2
+      this.throwDelay = (500 + Math.random() * 500) * rate
+    }
+
+    /**
+     * Initial objects
+     */
+    firstObjects() {
+      const totalObjects =  Math.max(Math.min(Math.round(window.safeWidth * 0.025), 5), 2)
+
+      for (let i = 0; i < totalObjects; i++) {
+        const object = this.objects.splice(
+          Math.floor(Math.random() * this.objects.length),
+          1
+        )[0]
+
+        object.set(false)
+
+        this.thrownObjects.push(object)
+      }
+    }
+
+    /**
+     * Object move end
+     */
+    objectMoveEnd(object) {
+      this.thrownObjects.splice(this.thrownObjects.indexOf(object), 1)
+      this.objects.push(object)
+    }
+
+    /**
+     * Object drag start
+     */
+    objectDragStart(e) {
+      e.preventDefault()
+
+      this.lastTouch = performance.now()
+
+      if (e instanceof MouseEvent === false) {
+        this.onTouchMove(e)
+      }
+
+      const el = e.currentTarget
+      const object = this.thrownObjects.find((o) => o.el === el)
+
+      if (object.isDragging || object.isVanishing) return
+
+      if (object) {
+        this.draggedObject = object
+        object.isDragging = true
+        el.classList.add('is-dragging')
+      }
+    }
+
+    /**
+     * Object drag end
+     */
+    objectDragEnd(e) {
+      e.preventDefault()
+
+      const object = this.draggedObject
+
+      if (object) {
+        object.isDragging = false
+        object.el.classList.remove('is-dragging')
+
+        object.isVanishing = true
+        object.el.classList.add('is-vanishing')
+
+        object.vanishStart = performance.now()
+      }
+    }
+
+    /**
+     * Tick
+     */
+    tick(time) {
+      const { scroll, el, mouse } = this
+
+      // Smooth mouse movement
+      mouse.sx += (mouse.x - mouse.sx) * 0.1
+      mouse.sy += (mouse.y - mouse.sy) * 0.1
+
+      const dx = mouse.x - mouse.sx
+      const dy = mouse.y - mouse.sy
+      mouse.d = Math.hypot(dx, dy)
+
+      // Smooth scroll
+      scroll.sp += (scroll.p - scroll.sp) * 0.1
+
+      el.style.setProperty('--scroll-progress', String(scroll.sp))
+
+      // Move objects
+      this.thrownObjects.forEach((object) => {
+        object.move(time)
+      })
+
+      if (this.isPaused) return
+
+      if (this.canThrow && time - this.lastThrow > this.throwDelay) {
+        this.throwObject()
+      }
+    }
+  }
+
+  class Object {
+    el: HTMLElement
+    parent: Section
+
+    index: number
+    delay: number
+    throwTimeout: number
+    vanishStart: number
+    vanishDelay: number
+
+    s: number
+    x: number
+    y: number
+    z: number
+
+    rx: number
+    ry: number
+    rz: number
+
+    vx: number
+    vy: number
+    vz: number
+    vrx: number
+    vry: number
+
+    isPaused: boolean
+    isWaiting: boolean
+    isDragging: boolean
+    isVanishing: boolean
+
+    /**
+     * Constructor
+     */
+    constructor(el, parent) {
+      this.parent = parent
+      this.el = el
+
+      this.index = Array.from(this.el.parentNode.children).indexOf(this.el)
+    }
+
+    /**
+     * Set position
+     */
+    set(fromScratch = true) {
+      this.el.style.setProperty('--size', String(0.5 + Math.random() * 0.5))
+
+      this.s = 0
+
+      this.x = 0
+      this.y = 0
+      this.z = -20000
+
+      this.rx = 90
+      this.ry = Math.random() * 2 - 1
+      this.rz = 0
+
+      this.vz = 40 + Math.random() * 10
+      this.vx =
+        Math.random() * window.safeWidth * 0.0025 * (this.index % 2 ? -1 : 1)
+      this.vy =
+        Math.random() * window.safeHeight * 0.0025 * (this.index % 3 ? -1 : 1)
+      this.vrx = 0.25 + Math.random() * 1
+      this.vry = 0.25 + Math.random() * 1
+
+      this.isWaiting = false
+      this.isDragging = false
+      this.isVanishing = false
+
+      this.el.classList.remove('is-waiting')
+      this.el.classList.remove('is-dragging')
+      this.el.classList.remove('is-vanishing')
+
+      this.vanishStart = 0
+      this.vanishDelay = 1000
+
+      if (!fromScratch) {
+        this.isWaiting = true
+
+        this.s = 1
+
+        this.x = this.vx * Math.random() * 200
+        this.y = this.vy * Math.random() * 200
+
+        this.rx = Math.random() * 360
+        this.ry = Math.random() * 360
+
+        this.z = Math.random() * -20000
+      }
+
+      this.el.style.setProperty('--s', String(this.s))
+    }
+
+    /**
+     * Tick
+     */
+    move(time) {
+      if (this.isWaiting) return
+
+      if (this.isDragging) {
+        const x = this.parent.mouse.x - this.parent.smiley.rel.x
+        const y = this.parent.mouse.y - this.parent.smiley.rel.y * 1.5
+
+        this.vx += (x - this.x) * 0.075
+        this.vy += (y - this.y) * 0.075
+        this.vz += (0 - this.z) * 0.3
+
+        this.ry = this.vx * 0.15
+        this.rx = this.vy * -0.15
+        this.rz = this.ry + this.rx
+
+        this.vx *= 0.9
+        this.vy *= 0.9
+        this.vz *= 0.75
+
+        this.x += this.vx * 0.5
+        this.y += this.vy * 0.5
+        this.z += this.vz * 0.25
+
+        this.z = Math.min(this.z, 500)
+
+        this.s += (1 - this.s) * 0.5
+      } else if (this.isVanishing) {
+        this.vy += 0.5
+
+        this.x += this.vx
+        this.y += this.vy
+
+        this.rx += this.vrx
+        this.ry += this.vry
+
+        if (time - this.vanishStart > this.vanishDelay) {
+          this.isWaiting = true
+          this.el.classList.add('is-waiting')
+          this.parent.objectMoveEnd(this)
+        }
+      } else {
+        if (this.z > 1000) {
+          this.isWaiting = true
+          this.el.classList.add('is-waiting')
+          this.parent.objectMoveEnd(this)
+        } else {
+          this.s += 0.005
+          this.s = Math.min(this.s, 1)
+
+          this.z += this.vz
+          this.x += this.vx
+          this.y += this.vy
+
+          this.rx += this.vrx
+          this.ry += this.vry
+        }
+      }
+
+      this.el.style.setProperty('--x', this.x + 'px')
+      this.el.style.setProperty('--y', this.y + 'px')
+      this.el.style.setProperty('--z', this.z + 'px')
+
+      this.el.style.setProperty('--rx', String(this.rx))
+      this.el.style.setProperty('--ry', String(this.ry))
+      this.el.style.setProperty('--rz', String(this.rz))
+
+      this.el.style.setProperty('--s', String(this.s))
+    }
+  }
+
+  new Section()
+</script>
+
+<style lang="scss">
+  .s-my-way {
+    --padding: 40rem;
+    --smiley-size: 5.625rem;
+
+    @include flex(column, center, center);
+
+    position: relative;
+    z-index: 3;
+
+    padding: calc(var(--padding) * 0.75) 0 calc(var(--padding) * 1.5);
+
+    clip-path: inset(-100vh 0 calc(var(--padding) * -1.375));
+
+    @include mq(desktop-lg) {
+      --padding: 35rem;
+    }
+
+    @include mq(desktop-md) {
+      --padding: 30rem;
+    }
+
+    @include mq(desktop-sm) {
+      --padding: 25rem;
+    }
+
+    @include mq(tablet) {
+      --padding: 30rem;
+
+      padding: calc(var(--padding) * 0.75) 0 calc(var(--padding) * 1.25);
+
+      clip-path: inset(-100vh 0 calc(var(--padding) * -1.2));
+    }
+
+    @include mq(tablet-sm) {
+      --padding: 25rem;
+    }
+
+    @include mq(phone) {
+      --padding: 18rem;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .s__smiley {
+      position: relative;
+      z-index: 2;
+
+      display: block;
+      width: var(--smiley-size);
+      height: var(--smiley-size);
+
+      background: color(primary);
+      border-radius: 999rem;
+
+      animation: rotate 10s linear infinite;
+      will-change: transform;
+
+      path {
+        fill: color(secondary);
+      }
+
+      circle {
+        fill: color(primary);
+      }
+    }
+
+    .s__objects {
+      position: absolute;
+      top: -100vh;
+      bottom: -100vh;
+      left: 0;
+      z-index: 3;
+
+      width: 100%;
+      height: auto;
+
+      overflow: hidden;
+      perspective: 1000px;
+      perspective-origin: 50% calc(50% - var(--padding) * 0.4);
+      pointer-events: none;
+      transform-style: preserve-3d;
+
+      will-change: opacity;
+
+      @include mq(tablet) {
+        perspective-origin: 50% calc(50% - var(--padding) * 0.275);
+      }
+    }
+
+    .s__ruler {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: calc(50% - var(--padding) * 0.4);
+
+      opacity: 0;
+      pointer-events: none;
+
+      @include mq(tablet) {
+        height: calc(50% - var(--padding) * 0.275);
+      }
+    }
+
+    .a-object {
+      --s: 0;
+      --x: 50vw;
+      --y: 50vh;
+      --z: -1000vw;
+      --rx: 0;
+      --ry: 0;
+      --rz: 0;
+      --depth: 1rem;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      display: block;
+
+      cursor: grab;
+
+      transform: translate3d(
+          calc(var(--x) - 50%),
+          calc(var(--y) - 50%),
+          var(--z)
+        )
+        rotateX(calc(var(--rx) * 1deg)) rotateY(calc(var(--ry) * 1deg))
+        rotateZ(calc(var(--rz) * 1deg)) scale(var(--s));
+      transform-style: preserve-3d;
+
+      pointer-events: none;
+      will-change: transform;
+
+      &:before {
+        mask: url('/images/sprite-vanish.png');
+      }
+
+      &.is-waiting {
+        transform: scale(0);
+      }
+
+      &--frame {
+        width: 500px;
+
+        pointer-events: all;
+
+        @include mq(tablet-sm) {
+          width: 300px;
+        }
+
+        .a__inner {
+          display: block;
+          margin: 0;
+          padding: 1.5rem 1.5rem 0;
+
+          background: color(secondary);
+        }
+
+        .a__img {
+          display: block;
+
+          width: 100%;
+          height: auto;
+        }
+
+        .a__caption {
+          display: block;
+          padding: 1.2rem 0;
+
+          color: color(white);
+          font: 400 12px / 1 font-family(fraktion);
+          text-align: center;
+          text-transform: uppercase;
+        }
+
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+
+          background: color(secondary);
+          transform: translateZ(calc(var(--depth) * -1 + 1px)) rotateY(180deg);
+
+          content: '';
+        }
+
+        .a__side {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+
+          transform-style: preserve-3d;
+
+          &:before,
+          &:after {
+            position: absolute;
+
+            background: color(shadow);
+            backface-visibility: visible;
+
+            content: '';
+          }
+
+          &--horizontal:before {
+            top: 0;
+            left: 0;
+
+            width: var(--depth);
+            height: 100%;
+
+            transform: rotateY(90deg);
+            transform-origin: 0 50%;
+          }
+
+          &--horizontal:after {
+            top: 0;
+            right: 0;
+
+            width: var(--depth);
+            height: 100%;
+
+            transform: rotateY(-90deg);
+            transform-origin: 100% 50%;
+          }
+
+          &--vertical:before {
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: var(--depth);
+
+            transform: rotateX(-90deg);
+            transform-origin: 50% 0;
+          }
+
+          &--vertical:after {
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: var(--depth);
+
+            transform: rotateX(90deg);
+            transform-origin: 50% 100%;
+          }
+        }
+      }
+
+      &--star {
+        --depth: 1rem;
+
+        left: 65%;
+
+        width: calc(var(--size) * 400px);
+        height: calc(var(--size) * 400px);
+
+        @include mq(tablet-sm) {
+          width: calc(var(--size) * 200px);
+          height: calc(var(--size) * 200px);
+        }
+
+        &:before,
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          display: block;
+          width: 100%;
+          height: 100%;
+
+          background: url('/images/asset-star.svg') center / cover no-repeat;
+
+          content: '';
+        }
+
+        &:after {
+          transform: translateZ(calc(var(--depth) * -1 + 1px));
+        }
+
+        .a__side {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+
+          transform-style: preserve-3d;
+
+          &:before,
+          &:after {
+            position: absolute;
+
+            background: color(secondary);
+            backface-visibility: visible;
+
+            content: '';
+          }
+
+          &--top-left:before {
+            top: 0;
+            left: 0;
+
+            width: var(--depth);
+            height: 50%;
+
+            transform: rotateY(90deg) rotateX(-81deg);
+            transform-origin: 0 100%;
+          }
+
+          &--top-left:after {
+            top: 0;
+            left: 0;
+
+            width: 50%;
+            height: var(--depth);
+
+            transform: rotateX(-90deg) rotateY(81deg);
+            transform-origin: 100% 0;
+          }
+
+          &--top-right:before {
+            top: 0;
+            right: 0;
+
+            width: var(--depth);
+            height: 50%;
+
+            transform: rotateY(-90deg) rotateX(-81deg);
+            transform-origin: 100% 100%;
+          }
+
+          &--top-right:after {
+            top: 0;
+            right: 0;
+
+            width: 50%;
+            height: var(--depth);
+
+            transform: rotateX(-90deg) rotateY(-81deg);
+            transform-origin: 0 0;
+          }
+
+          &--bottom-left:before {
+            bottom: 0;
+            left: 0;
+
+            width: var(--depth);
+            height: 50%;
+
+            transform: rotateY(90deg) rotateX(81deg);
+            transform-origin: 0 0;
+          }
+
+          &--bottom-left:after {
+            bottom: 0;
+            left: 0;
+
+            width: 50%;
+            height: var(--depth);
+
+            transform: rotateX(90deg) rotateY(81deg);
+            transform-origin: 100% 100%;
+          }
+
+          &--bottom-right:before {
+            bottom: 0;
+            right: 0;
+
+            width: var(--depth);
+            height: 50%;
+
+            transform: rotateY(-90deg) rotateX(81deg);
+            transform-origin: 100% 0;
+          }
+
+          &--bottom-right:after {
+            bottom: 0;
+            right: 0;
+
+            width: 50%;
+            height: var(--depth);
+
+            transform: rotateX(90deg) rotateY(-81deg);
+            transform-origin: 0 100%;
+          }
+        }
+      }
+
+      &.is-dragging {
+        z-index: 2;
+
+        transform-style: flat;
+
+        cursor: grabbing;
+
+        &:after,
+        .a__side {
+          display: none;
+        }
+      }
+
+      @keyframes vanish {
+        0% {
+          mask-position: left 0;
+        }
+        100% {
+          mask-position: right 0;
+        }
+      }
+
+      &.is-vanishing {
+        --strip-width: 1px;
+        --strip-gap: 25px;
+
+        z-index: 2;
+
+        cursor: default;
+
+        background:
+          linear-gradient(
+              90deg,
+              color(secondary),
+              color(secondary) var(--strip-width),
+              transparent var(--strip-width),
+              transparent calc(var(--strip-width) + var(--strip-gap))
+            )
+            center / calc(var(--strip-width) + var(--strip-gap)) 100% repeat,
+          linear-gradient(
+              0deg,
+              color(secondary),
+              color(secondary) var(--strip-width),
+              transparent var(--strip-width),
+              transparent calc(var(--strip-width) + var(--strip-gap))
+            )
+            center / 100% calc(var(--strip-width) + var(--strip-gap)) repeat,
+          color(primary);
+        pointer-events: none;
+
+        &,
+        .a__inner {
+          mask: url('/images/sprite-vanish.png') left/3000% 100%;
+          animation: vanish 0.75s steps(29, end) 1 both;
+        }
+
+        & {
+          animation-delay: 0.105s;
+        }
+
+        &:after,
+        .a__side {
+          display: none;
+        }
+      }
+    }
+
+    .s__catcher {
+      --amplitude: 50%;
+      --offset: 15%;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+
+      width: 100%;
+      height: calc(var(--padding) * 1.05 + var(--smiley-size) / 2);
+
+      perspective: calc(var(--distortion) * 0.85em);
+      user-select: none;
+
+      font: 700 calc(var(--padding) * 1.2) / 1 font-family(bigger);
+      line-height: 0.82;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      @include mq(tablet) {
+        --amplitude: 75%;
+        --offset: 27.5%;
+
+        perspective: calc(var(--distortion) * 1.05em);
+        font-size: calc(var(--padding) * 0.75);
+      }
+
+      &__distorted-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: calc(var(--padding) * 1.5);
+
+        overflow: hidden;
+        perspective: calc(var(--distortion) * 0.7em);
+
+        @include mq(tablet) {
+          perspective: calc(var(--distortion) * 0.85em);
+        }
+      }
+
+      &__distorted {
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+
+        width: 300%;
+        height: calc(var(--padding) * 1.05 + var(--smiley-size) / 2);
+
+        transform-origin: 50% 100%;
+        transform: matrix3d(
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          var(--distortion),
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        );
+      }
+
+      &__normal-wrapper {
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+
+        width: 100%;
+        height: calc(100% + 100vh);
+
+        overflow: hidden;
+      }
+
+      &__normal {
+        position: absolute;
+        top: 0;
+        left: -100%;
+
+        width: 300%;
+        height: 100%;
+      }
+
+      &__text {
+        position: absolute;
+        left: 0;
+
+        width: 100%;
+
+        will-change: transform;
+
+        &--distorted {
+          bottom: 0;
+
+          transform: translate3d(
+            0,
+            calc(var(--scroll-progress) * var(--amplitude) - var(--offset)),
+            0
+          );
+        }
+
+        &--normal {
+          top: 0;
+
+          transform: translate3d(
+            0,
+            calc(
+              var(--scroll-progress) * var(--amplitude) - 100% - var(--offset)
+            ),
+            0
+          );
+        }
+      }
+    }
+
+    .s__svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      width: 100%;
+      height: 100%;
+
+      &__circular-path {
+        fill: none;
+        stroke: color(secondary);
+        stroke-width: 1px;
+      }
+
+      :global(circle) {
+        position: relative;
+        z-index: 2;
+        fill: color(primary);
+        stroke: color(secondary);
+        stroke-width: 1px;
+      }
+    }
+
+    &.is-out-of-view-bottom {
+      .a-object,
+      .s__catcher {
+        display: none;
+      }
+    }
+  }
+</style>

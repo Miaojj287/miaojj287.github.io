@@ -1,0 +1,267 @@
+<div class="site-scrollbar">
+  <div class="site-scrollbar__track"></div>
+  <div class="site-scrollbar__thumb js-thumb"></div>
+</div>
+
+<script>
+  import Emitter from '../utils/Emitter'
+
+  class Scrollbar {
+    el: HTMLElement
+    thumb: HTMLElement
+
+    drag: {
+      start: {
+        y: number
+        scroll: number
+      }
+    }
+
+    isDragging: boolean
+
+    /**
+     * Contructor
+     */
+    constructor() {
+      // elements
+      this.el = document.querySelector('.site-scrollbar')
+      this.thumb = this.el.querySelector('.js-thumb')
+
+      // Properties
+      this.drag = {
+        start: {
+          y: 0,
+          scroll: 0,
+        },
+      }
+
+      this.isDragging = false
+
+      // Init
+      document.documentElement.classList.add('has-scrollbar')
+
+      this.bindEvents()
+    }
+
+    /**
+     * Bind events
+     */
+    bindEvents() {
+      const { thumb } = this
+
+      Emitter.on('resize', this.setScrollbar, this)
+      Emitter.on('scroll', this.setScrollbar, this)
+      Emitter.on('siteLoaded', this.setScrollbar, this, true)
+      Emitter.on('updateViewport', this.setScrollbar, this, true)
+
+      // Drag start event
+      thumb.addEventListener('mousedown', this.onDragStart.bind(this), {
+        passive: false,
+      })
+      thumb.addEventListener('touchstart', this.onDragStart.bind(this), {
+        passive: false,
+      })
+
+      // Drag move event
+      document.addEventListener('mousemove', this.onDragMove.bind(this), {
+        passive: false,
+      })
+      document.addEventListener('touchmove', this.onDragMove.bind(this), {
+        passive: false,
+      })
+
+      // Drag end event
+      document.addEventListener('mouseup', this.onDragEnd.bind(this), {
+        passive: false,
+      })
+      document.addEventListener('touchend', this.onDragEnd.bind(this), {
+        passive: false,
+      })
+    }
+
+    /**
+     * Set scrollbar
+     */
+    setScrollbar() {
+      const scrollbarHeight =
+        (window.safeHeight / document.body.scrollHeight) * window.safeHeight
+      const scrollbarTop =
+        window.scrollProgress * (window.safeHeight - scrollbarHeight)
+
+      this.el.style.setProperty('--scrollbar-height', `${scrollbarHeight}px`)
+      this.el.style.setProperty('--scrollbar-top', `${scrollbarTop}px`)
+    }
+
+    /**
+     * Drag start
+     */
+    onDragStart(e: MouseEvent | TouchEvent) {
+      let { el, drag } = this
+
+      this.isDragging = true
+
+      drag.start.y = e instanceof MouseEvent ? e.clientY : e.touches[0].clientY
+      drag.start.scroll = window.scrollProgress
+
+      el.classList.add('is-dragging')
+
+      e.preventDefault()
+    }
+
+    /**
+     * Drag move
+     */
+    onDragMove(e: MouseEvent | TouchEvent) {
+      if (!this.isDragging) return
+
+      const { drag } = this
+
+      const dragY =
+        e instanceof MouseEvent ? e.clientY : e.touches && e.touches[0].clientY
+      const dragDelta = dragY - drag.start.y
+      const dragProgress = dragDelta / window.safeHeight
+      const newScrollProgress = drag.start.scroll + dragProgress
+      const scrollMove = newScrollProgress * window.maxScrollTop
+
+      window.scrollTo(0, scrollMove)
+
+      e.preventDefault()
+    }
+
+    /**
+     * Drag end
+     */
+    onDragEnd(e) {
+      if (!this.isDragging) return
+
+      const { el } = this
+
+      this.isDragging = false
+      el.classList.remove('is-dragging')
+
+      e.preventDefault()
+    }
+  }
+
+  new Scrollbar()
+</script>
+
+<style lang="scss">
+  .site-scrollbar {
+    --border-width: 1rem;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+
+    width: var(--border-width);
+    height: 100%;
+
+    scale: 1 1;
+
+    transition: scale 0.5s ease(out-cubic);
+
+    will-change: scale;
+
+    @include mq(phone) {
+      --border-width: 0.5rem;
+    }
+
+    &__track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+
+      width: 100%;
+      height: 100%;
+
+      background-color: transparent;
+
+      pointer-events: none;
+    }
+
+    &__thumb {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 3;
+
+      width: calc(var(--border-width) * 0.5);
+      height: var(--scrollbar-height, 0);
+
+      cursor: grab;
+
+      translate: -50% var(--scrollbar-top) 0;
+      scale: 1 1;
+
+      transition:
+        scale 0.2s ease(out-cubic),
+        opacity 0.07s linear;
+
+      will-change: opacity, scale, transform;
+
+      @at-root .is-transitioning & {
+        scale: 0 1;
+      }
+
+      &:before {
+        position: absolute;
+        top: calc(var(--border-width) * -1);
+        left: calc(50% - var(--border-width) * 0.5);
+
+        width: var(--border-width);
+        height: calc(100% + var(--border-width));
+
+        content: '';
+      }
+
+      &:after {
+        position: absolute;
+        top: var(--border-width);
+        bottom: var(--border-width);
+        left: 50%;
+
+        width: 100%;
+        height: auto;
+
+        background-color: color(primary);
+        border-radius: inherit;
+        translate: -50% 0 0;
+
+        transition:
+          width 0.1s ease(out-cubic),
+          background-color 0.1s ease(out-cubic);
+
+        content: '';
+
+        will-change: background, width;
+      }
+
+      &:hover {
+        &:after {
+          width: calc(var(--border-width) - 2px);
+        }
+      }
+    }
+
+    &.is-dragging {
+      cursor: grabbing;
+
+      .site-scrollbar__thumb {
+        cursor: grabbing;
+
+        &:after {
+          width: calc(var(--border-width) - 2px);
+
+          background-color: color(white);
+        }
+      }
+    }
+  }
+
+  html.is-scroll-blocked .site-scrollbar {
+    scale: 0 1;
+  }
+</style>

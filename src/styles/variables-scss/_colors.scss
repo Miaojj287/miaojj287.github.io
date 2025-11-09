@@ -1,0 +1,27 @@
+/**
+ * Colors variables
+ */
+@use 'sass:map';
+
+$theme-colors: (
+  default: (
+    /* App background */
+    primary: #ffffff,
+    /* Text / strokes / borders */
+    secondary: #0a1f44,
+    /* Accents / shadows / overlays */
+    shadow: #0c2d73,
+    /* Pure white token for components that explicitly ask for 'white' */
+    white: #ffffff,
+  ),
+
+  contrasted: (
+    /* Slightly tinted background for high-contrast mode */
+    primary: #eaf2ff,
+    /* Keep ink consistent */
+    secondary: #0a1f44,
+    /* Darker accent for contrast theme */
+    shadow: #0b1f5a,
+    white: #ffffff,
+  ),
+);

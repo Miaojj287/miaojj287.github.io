@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Editorial New';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/PPEditorialNew-Regular.woff2') format('woff2');
+  font-display: swap;
+  text-rendering: optimizelegibility;
+}
+
+@font-face {
+  font-family: 'Editorial New';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/PPEditorialNew-Ultralight.woff2') format('woff2');
+  font-display: swap;
+  text-rendering: optimizelegibility;
+}

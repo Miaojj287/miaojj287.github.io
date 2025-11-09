@@ -1,0 +1,553 @@
+---
+import AWaves from './AWaves.astro'
+import ASeparator from './ASeparator.astro'
+---
+
+<div class="s-hero" data-intersect>
+  <AWaves class="s__waves" />
+
+  <div class="s__content js-content">
+    <ASeparator
+      class="s__separator js-separator"
+      strings={['Ant', 'oi', 'ne', 'Wo', 'dn', 'ia', 'ck']}
+    />
+
+    <h1 class="s__title">
+      <span class="s__title__word js-word">Creative</span>
+      <img
+        class="s__title__asset js-star"
+        src="/images/asset-star.svg"
+        alt=""
+        width="48"
+        height="48"
+      />
+      <span class="s__title__word js-word">Developer</span>
+    </h1>
+
+    <ASeparator
+      class="s__separator js-separator"
+      strings={['Do', 'Things', 'Your', 'Way']}
+    />
+  </div>
+
+  <div class="s__border js-border"></div>
+</div><!-- .s-hero -->
+
+<script>
+  import Emitter from '../utils/Emitter'
+  import Ticker from '../utils/Ticker'
+
+  import { gsap } from 'gsap'
+  import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
+  import { SplitText } from 'gsap/SplitText'
+  gsap.registerPlugin(DrawSVGPlugin, SplitText)
+
+  class Section {
+    el: HTMLElement
+    words: NodeListOf<HTMLElement>
+
+    isPaused: boolean
+    isWaiting: boolean
+    st: SplitText
+
+    /**
+     * Constructor
+     */
+    constructor() {
+      // Elements
+      this.el = document.querySelector('.s-hero')
+      this.words = this.el.querySelectorAll('.js-word')
+
+      // Properties
+      this.isPaused = true
+      this.isWaiting = true
+
+      // Init
+      if (document.readyState === 'complete') {
+        Ticker.nextTick(this.init, this)
+      } else {
+        Emitter.once('siteLoaded', this.init, this)
+      }
+    }
+
+    /**
+     * Init
+     */
+    init() {
+      this.splitWords()
+
+      this.bindEvents()
+    }
+
+    /**
+     * Bind events
+     */
+    bindEvents() {
+      Emitter.on('resize', this.onResize, this)
+
+      document.addEventListener('intro', this.intro.bind(this), { once: true })
+
+      this.el.addEventListener('intersect', this.onIntersect.bind(this), {
+        passive: true,
+      })
+
+      Emitter.on('tick', this.tick, this)
+    }
+
+    /**
+     * Intersect handler
+     */
+    onIntersect(e) {
+      this.isPaused = !e.detail.isIntersecting
+
+      if (this.isPaused) {
+        Emitter.off('tick', this.tick, this)
+      } else {
+        Emitter.on('tick', this.tick, this)
+      }
+    }
+
+    /**
+     * Resize handler
+     */
+    onResize() {
+      this.splitWords()
+    }
+
+    /**
+     * Intro
+     */
+    intro() {
+      const waves = this.el.querySelector('a-waves')
+      const lines = waves.querySelectorAll('.js-line')
+      const content = this.el.querySelector('.js-content')
+      const border = this.el.querySelector('.js-border')
+      const chars = content.querySelectorAll('.char__inner')
+      const separators = content.querySelectorAll('.js-separator')
+      const star = content.querySelector('.js-star')
+
+      const tl = gsap.timeline()
+
+      tl.fromTo(
+        lines,
+        {
+          drawSVG: '100% 100%',
+        },
+        {
+          drawSVG: '0% 100%',
+          duration: 3,
+          ease: 'expo.out',
+          stagger: {
+            amount: 0.5,
+            from: 'edges',
+            ease: 'power3.inOut',
+          },
+        },
+        0.5
+      )
+
+      tl.call(() => {
+        waves.dispatchEvent(new CustomEvent('introend'))
+      }, null, '-=1')
+
+      tl.set(
+        this.el,
+        {
+          opacity: 1,
+        },
+        0
+      )
+
+      tl.to(
+        border,
+        {
+          scaleY: 0.025,
+          y: -content.clientHeight,
+          duration: 1,
+          ease: 'expo.inOut',
+        },
+        0
+      )
+
+      tl.from(
+        waves,
+        {
+          y: '100%',
+          duration: 1.35,
+          ease: 'expo.out',
+        },
+        0
+      )
+
+      tl.fromTo(
+        content,
+        {
+          clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+        },
+        {
+          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          duration: 1,
+          ease: 'expo.inOut',
+        },
+        1
+      )
+
+      tl.to(
+        border,
+        {
+          scaleY: 1,
+          y: 0,
+          duration: 1,
+          ease: 'expo.inOut',
+        },
+        1
+      )
+
+      tl.from(
+        star,
+        {
+          rotate: 90,
+          duration: 2,
+          ease: 'expo.out',
+        },
+        1.5
+      )
+
+      tl.fromTo(
+        chars,
+        {
+          y: '-200%',
+        },
+        {
+          y: '-100%',
+          duration: 2,
+          ease: 'expo.inOut',
+          stagger: 0.02,
+        },
+        0.45
+      )
+
+      tl.from(
+        separators,
+        {
+          y: (index) => (index % 2 === 0 ? '-100%' : '100%'),
+          duration: 1.5,
+          ease: 'expo.inOut',
+        },
+        0.75
+      )
+
+      tl.call(() => {
+        this.isWaiting = false
+      })
+    }
+
+    /**
+     * Split words
+     */
+    splitWords() {
+      if (this.st) {
+        this.st.revert()
+      }
+
+      this.st = new SplitText(this.words, {
+        type: 'words,chars',
+        charsClass: 'char',
+        wordsClass: 'word',
+      })
+
+      this.st.chars.forEach((char: HTMLElement, index) => {
+        const letter = char.textContent
+
+        char.classList.add('char--' + letter)
+
+        const inner = document.createElement('span')
+        inner.classList.add('char__inner')
+
+        inner.dataset.letter = letter.toUpperCase()
+        inner.innerHTML = letter
+
+        char.innerHTML = inner.outerHTML
+      })
+    }
+
+    /**
+     * Animate char
+     */
+    animateChar() {
+      if (this.isWaiting || Math.random() > 0.01) return
+
+      const char =
+        this.st.chars[Math.floor(Math.random() * this.st.chars.length)]
+
+      if (
+        char.classList.contains('to-top') ||
+        char.classList.contains('to-right') ||
+        char.classList.contains('to-bottom') ||
+        char.classList.contains('to-left')
+      )
+        return
+
+      const direction = Math.floor(Math.random() * 4)
+
+      const className = 'to-' + ['bottom', 'left', 'top', 'right'][direction]
+
+      char.classList.add(className)
+
+      setTimeout(() => {
+        char.classList.remove(className)
+      }, 2000)
+    }
+
+    /**
+     * Tick
+     */
+    tick() {
+      this.animateChar()
+    }
+  }
+
+  new Section()
+</script>
+
+<style lang="scss">
+  .s-hero {
+    @include flex(column, stretch, stretch);
+
+    position: relative;
+    z-index: 4;
+
+    min-height: calc(100svh - 7rem - 1px);
+
+    opacity: 0;
+    overflow: hidden;
+
+    @include mq(phone) {
+      min-height: calc(100svh - 4.5rem - 1px);
+    }
+
+    .s__waves {
+      width: 100%;
+      height: 100%;
+
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    .s__border {
+      position: absolute;
+      top: 100%;
+      left: 0;
+
+      width: 100%;
+      height: 40 * 1rem;
+
+      background: color(secondary);
+      transform-origin: 50% 0;
+
+      @include mq(phone) {
+        height: 40 * 0.5rem;
+      }
+    }
+
+    .s__content {
+      position: relative;
+
+      overflow: hidden;
+      transform-origin: 50% 100%;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background: color(secondary);
+
+        content: '';
+      }
+    }
+
+    .s__title,
+    .s__separator {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .s__title {
+      @include flex(row, center, center);
+
+      margin: 0;
+      padding: 1.5rem 0;
+
+      cursor: default;
+
+      font: 700 min(15vw, 18.5rem) / 0.8 font-family(bigger);
+      text-transform: uppercase;
+
+      @include mq(desktop-xs) {
+        font-size: 14vw;
+      }
+
+      @include mq(tablet) {
+        padding: 1rem;
+        // align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        font-size: calc(31vw - 1rem);
+      }
+
+      @include mq(phone) {
+        font-size: calc(31vw - 0.75rem);
+      }
+
+      &__word {
+        position: relative;
+
+        display: block;
+        height: 0.7975em;
+
+        @include mq(tablet) {
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+
+        @include mq(phone) {
+          height: 0.825em;
+        }
+      }
+
+      &__asset {
+        display: block;
+        margin: 0 2rem;
+
+        @include mq(tablet) {
+          // display: none;
+          margin: 0 0 0 auto;
+          width: 0.375em;
+          height: auto;
+        }
+      }
+
+      @keyframes s-hero-move-to-left {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+          transform: translate3d(100%, 0, 0);
+        }
+      }
+
+      @keyframes s-hero-move-to-right {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+          transform: translate3d(-100%, 0, 0);
+        }
+      }
+
+      @keyframes s-hero-move-to-top {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+          transform: translate3d(0, -100%, 0);
+        }
+      }
+
+      @keyframes s-hero-move-to-bottom {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+          transform: translate3d(0, 100%, 0);
+        }
+      }
+
+      :global(.char) {
+        clip-path: inset(0 0.005em);
+
+        color: transparent;
+      }
+
+      :global(.char__inner) {
+        position: relative;
+        top: 0.0725em;
+
+        display: block;
+
+        color: transparent;
+
+        will-change: transform;
+
+        @at-root {
+          :global(.is-windows) &,
+          :global(.is-android) & {
+            top: 0.1025em;
+
+            @include mq(phone) {
+              top: 0.105em;
+            }
+          }
+
+          :global(.is-firefox) & {
+            top: 0.1015em;
+          }
+        }
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 50%;
+
+          transform: translate3d(-50%, 0, 0);
+
+          color: color(secondary);
+
+          content: attr(data-letter) attr(data-letter) attr(data-letter);
+        }
+
+        &:after {
+          position: absolute;
+          top: 50%;
+          left: 0;
+
+          transform: translate3d(0, -50%, 0);
+
+          color: color(secondary);
+          word-break: break-all;
+
+          content: attr(data-letter) attr(data-letter) attr(data-letter);
+        }
+      }
+
+      :global(.char--t) {
+        margin-left: -0.035em;
+      }
+
+      :global(.to-top .char__inner) {
+        animation: s-hero-move-to-top 1s ease(in-out-quint) 1 forwards;
+      }
+
+      :global(.to-right .char__inner) {
+        animation: s-hero-move-to-right 1s ease(in-out-quint) 1 forwards;
+      }
+
+      :global(.to-bottom .char__inner) {
+        animation: s-hero-move-to-bottom 1s ease(in-out-quint) 1 forwards;
+      }
+
+      :global(.to-left .char__inner) {
+        animation: s-hero-move-to-left 1s ease(in-out-quint) 1 forwards;
+      }
+    }
+  }
+</style>

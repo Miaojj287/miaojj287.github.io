@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Bigger Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Bigger-Display.woff2') format('woff2');
+  font-display: swap;
+  text-rendering: optimizelegibility;
+}

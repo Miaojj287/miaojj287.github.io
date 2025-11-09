@@ -1,0 +1,19 @@
+/**
+ * Fonts variables
+ */
+@use "sass:list";
+@use "sass:map";
+
+/* Families */
+$theme-font-families: (
+  fraktion: "'Fraktion Mono', monospace",
+  editorial: "'Editorial New', serif",
+  bigger: "'Bigger Display', sans-serif",
+);
+
+/* Sizes */
+$theme-font-styles: (
+  default: (
+    base: (16px, 400, 1.48, editorial, -0.025em),
+  ),
+);

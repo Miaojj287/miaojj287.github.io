@@ -1,0 +1,179 @@
+---
+const { caption, cssClass, index, site, src, total } = Astro.props
+
+// A random string with the syntax '[a-z][0-9]{3}-index-total'
+const key = Math.random().toString(36).slice(2, 6) + '-' + index + '/' + total
+---
+
+<a-work class={cssClass}>
+  <div class="a__inner">
+    <a href={site} target="_blank">
+      <video
+        data-src={src}
+        class="a__video js-video"
+        loop
+        muted
+        playsinline
+        width="1082"
+        height="636"
+      >
+      </video>
+
+      <div class="a__caption">
+        <div class="a__caption__text">
+          {caption}
+        </div><!-- .a__caption__text -->
+
+        <div class="a__caption__key">
+          #{key}
+        </div><!-- .a__caption__key -->
+      </div><!-- .a__caption -->
+    </a>
+  </div><!-- .a__inner -->
+</a-work>
+
+<script>
+  class AWork extends HTMLElement {
+    static observedAttributes = ['progress']
+
+    link: HTMLAnchorElement
+    video: HTMLVideoElement
+
+    isPlaying: boolean
+
+    /**
+     * Init
+     */
+    connectedCallback() {
+      // Elements
+      this.video = this.querySelector('.js-video')
+      this.link = this.querySelector('a')
+
+      // Properties
+      this.isPlaying = false
+
+      // Events
+      this.link.addEventListener('click', this.onClick.bind(this))
+    }
+
+    /**
+     * Attribute changed
+     */
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === 'progress') {
+        this.style.setProperty('--progress', newValue)
+
+        if (newValue === '1' || newValue === '-1') {
+          if (this.isPlaying) {
+            this.outView()
+          }
+        } else {
+          if (!this.isPlaying) {
+            this.inView()
+          }
+        }
+      }
+    }
+
+    /**
+     * Gets in view
+     */
+    inView() {
+      this.video.play()
+      this.isPlaying = true
+
+      this.classList.add('is-inview')
+    }
+
+    /**
+     * Gets out view
+     */
+    outView() {
+      this.video.pause()
+      this.isPlaying = false
+
+      this.classList.remove('is-inview')
+    }
+
+    /**
+     * On click
+     */
+    onClick(event: MouseEvent) {
+      if (this.link.href.includes('#')) {
+        event.preventDefault()
+        return false
+      }
+    }
+  }
+
+  customElements.define('a-work', AWork)
+</script>
+
+<style lang="scss">
+  a-work {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin: 0;
+    padding: 0.5rem 0.5rem 0;
+
+    background: color(secondary);
+    content-visibility: hidden;
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+    @include mq(phone) {
+      padding: 0.25rem;
+    }
+
+    a {
+      display: block;
+
+      text-decoration: none;
+    }
+
+    .a__inner {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    .a__video {
+      display: block;
+
+      width: auto;
+      max-width: 50vw;
+      height: auto;
+      max-height: 50vh;
+
+      @include mq(phone) {
+        max-width: 80vw;
+        max-height: 80vh;
+      }
+    }
+
+    .a__caption {
+      @include flex(row, center, space-between);
+
+      padding: 0.5rem 0.5rem;
+
+      color: color(primary);
+      font: 700 11px / 1 font-family(fraktion);
+      letter-spacing: 0.15em;
+      text-align: right;
+      text-transform: uppercase;
+
+      @include mq(phone) {
+        display: none;
+      }
+    }
+
+    &.is-inview {
+      content-visibility: visible;
+    }
+  }
+</style>

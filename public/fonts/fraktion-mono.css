@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Fraktion Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/PPFraktionMono-Regular.woff2') format('woff2');
+  font-display: swap;
+  text-rendering: optimizelegibility;
+}
+
+@font-face {
+  font-family: 'Fraktion Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/PPFraktionMono-Bold.woff2') format('woff2');
+  font-display: swap;
+  text-rendering: optimizelegibility;
+}

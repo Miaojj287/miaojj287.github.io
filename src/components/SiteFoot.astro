@@ -1,0 +1,53 @@
+<footer class="site-foot">
+  <div class="site-foot__logo">
+    <a href="/">
+      <svg
+        width="280"
+        height="280"
+        viewBox="0 0 280 280"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M240.245 0v263.2h-19.894V0h-39.756v263.2h-19.861V0h-39.755v280H280V0h-39.755Z"
+          fill="#160000"
+        >
+        </path>
+        <path d="M0 0v280h39.755V16.8H59.65V280h39.756V0H0Z" fill="#160000">
+        </path>
+      </svg>
+
+      <span class="u-sr-only">Antoine Wodniack</span>
+    </a>
+  </div><!-- .site-foot__logo -->
+</footer>
+
+<style lang="scss">
+  .site-foot {
+    @include flex(row, center, center);
+
+    position: relative;
+    z-index: 3;
+
+    padding: 1.5rem;
+
+    border-top: 1px solid color(secondary);
+
+    @include mq(phone) {
+      padding: 1rem;
+    }
+
+    &__logo {
+      svg {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+
+        @include mq(phone) {
+          width: 1.875rem;
+          height: 1.875rem;
+        }
+      }
+    }
+  }
+</style>

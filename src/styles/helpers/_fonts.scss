@@ -1,0 +1,21 @@
+/**
+ * Fonts helpers
+ */
+
+/* Get a font family value */
+@function font-family($key) {
+  @return var(--font-family-#{$key});
+}
+
+/* Get a font size value */
+@function font-size($key) {
+  @return var(--font-size-#{$key});
+}
+
+/* Return a text style */
+@mixin t($key: base) {
+  margin: 0;
+
+  font: var(--font-weight-#{$key}) var(--font-size-#{$key}) / var(--font-height-#{$key}) var(--font-family-#{$key});
+  letter-spacing: var(--font-spacing-#{$key});
+}
