@@ -1,10 +1,12 @@
-
 @import "tailwindcss";
+
+@config "./tailwind.config.js";
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300;
   }
@@ -14,6 +16,7 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
