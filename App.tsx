@@ -25,7 +25,7 @@ const App: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-6 pt-36 pb-12 md:pb-24 space-y-32">
       <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      
+
       <main className="space-y-40">
         <section id="hero" className="scroll-mt-48">
           <Hero />

@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       const scrollPosition = currentScrollY + 250;
       const sections = ['about', 'education', 'experience', 'projects', 'skills'];
       let current = activeSection;
@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
       setActiveSection(current);
 
       if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) return;
-      
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
@@ -68,10 +68,9 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 pointer-events-none pt-8 flex flex-col items-center transition-all duration-500 ease-in-out ${
-        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 pointer-events-none pt-8 flex flex-col items-center transition-all duration-500 ease-in-out ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        }`}
     >
       <div className="pointer-events-auto mb-5">
         <span className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white drop-shadow-sm">
@@ -87,11 +86,10 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
                 key={item.label}
                 href={`#${item.id}`}
                 onClick={(e) => scrollToSection(e, item.id)}
-                className={`px-4 md:px-6 py-2.5 text-sm font-bold rounded-[26px] transition-all duration-500 relative whitespace-nowrap ${
-                  activeSection === item.id
+                className={`px-4 md:px-6 py-2.5 text-sm font-bold rounded-[26px] transition-all duration-500 relative whitespace-nowrap ${activeSection === item.id
                     ? 'bg-white/60 dark:bg-white/10 text-zinc-950 dark:text-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] border border-white/50 dark:border-white/10 scale-[1.02]'
                     : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
+                  }`}
               >
                 {item.label}
               </a>
