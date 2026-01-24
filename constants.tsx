@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     title: 'Intelligent work out',
     description: 'An immersive digital experience focusing on aesthetic minimalism and user-centric flows. Explored complex interactions and fluid animations.',
     images: [
-      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/WorkOut1.png,
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/WorkOut1.png',
       'https://picsum.photos/seed/enchant2/600/400'
     ],
     link: 'https://etytech.com/',
