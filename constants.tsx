@@ -4,72 +4,81 @@ import { Project, Experience, SkillCard, Education } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Paragon',
-    description: 'Step into the journey of a unique project. Here, I unravel the threads of my thought process and exciting steps taken from inception to execution.',
+    title: 'Gap Days',
+    description: 'Help people in a gap period relieve anxiety, intelligently plan daily tasks, and visualize personal growth.',
     images: [
-      'https://picsum.photos/seed/paragon1/600/400',
-      'https://picsum.photos/seed/paragon2/600/400',
-      'https://picsum.photos/seed/paragon3/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/GapDays1.png',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/GapDays2.png',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/GapDays3.png'
     ],
     link: '#',
-    tags: ['USE CASE']
+    tags: ['Ios App']
   },
   {
     id: '2',
-    title: 'Enchant',
-    description: 'An immersive digital experience focusing on aesthetic minimalism and user-centric flows. Explored complex interactions and fluid animations.',
+    title: 'SE Agent',
+    description: 'https://github.com/Miaojj287/SE-Agent',
     images: [
-      'https://picsum.photos/seed/enchant1/600/400',
-      'https://picsum.photos/seed/enchant2/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Se1.png',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Se2.Jpg'
     ],
-    link: 'https://etytech.com/',
-    tags: ['TEMPLATE']
+    link: 'https://github.com/Miaojj287/SE-Agent',
+    tags: ['RL AI Project']
   },
   {
     id: '3',
-    title: 'Paragon',
-    description: 'Step into the journey of a unique project. Here, I unravel the threads of my thought process and exciting steps taken from inception to execution.',
+    title: 'SCIID Website',
+    description: 'An website designed to present the institute\'s service offerings and representative project cases in a professional and engaging manner.',
     images: [
-      'https://picsum.photos/seed/paragon1/600/400',
-      'https://picsum.photos/seed/paragon2/600/400',
-      'https://picsum.photos/seed/paragon3/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCIID1.JPG',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCIID2.PNG'
     ],
-    link: '#',
-    tags: ['USE CASE']
+    link: 'https://github.com/Miaojj287/GDTUSCI-Web',
+    tags: ['Responsive Website']
   },
   {
     id: '4',
-    title: 'Enchant',
-    description: 'An immersive digital experience focusing on aesthetic minimalism and user-centric flows. Explored complex interactions and fluid animations.',
+    title: 'SCNU Education Platform',
+    description: 'An online service platform for our university -- South China Normal University (SCNU), enabling students to sign in, submit comprehensive evaluations, book appointments, and track progress.',
     images: [
-      'https://picsum.photos/seed/enchant1/600/400',
-      'https://picsum.photos/seed/enchant2/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCNU1.png',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCNU2.png'
     ],
-    link: 'https://etytech.com/',
-    tags: ['TEMPLATE']
+    link: 'https://github.com/Miaojj287/SCNU-Integrated-Service-Platform',
+    tags: ['Service Platform']
   },
   {
     id: '5',
-    title: 'Paragon',
-    description: 'Step into the journey of a unique project. Here, I unravel the threads of my thought process and exciting steps taken from inception to execution.',
+    title: 'AR Education Game',
+    description: 'An AR-based educational game for children aged 6–10, developed with Unity and the Vuforia plugin. The game integrates multiple subjects into interactive, immersive learning experiences.',
     images: [
-      'https://picsum.photos/seed/paragon1/600/400',
-      'https://picsum.photos/seed/paragon2/600/400',
-      'https://picsum.photos/seed/paragon3/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/AR1.png',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/AR2.png',
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/AR3.png'
     ],
-    link: '#',
-    tags: ['USE CASE']
+    link: 'https://etytech.com/',
+    tags: ['Android App']
   },
   {
     id: '6',
+    title: ' Wechat Bot',
+    description: 'A custom WeChat plugin designed for bulk commercial email distribution. It features automatic keyword extraction and batch sending capabilities.',
+    images: [
+      'https://picsum.photos/seed/paragon1/600/400'
+    ],
+    link: 'https://github.com/Miaojj287/wechat_BOT',
+    tags: ['WeChat Plugin']
+  },
+  {
+    id: '7',
     title: 'Intelligent work out',
-    description: 'An immersive digital experience focusing on aesthetic minimalism and user-centric flows. Explored complex interactions and fluid animations.',
+    description: 'A companion WeChat program for my school gym, offering personalized training plan creation and workout management. The platform leverages data analytics to provide customized fitness recommendations and track progress over time.',
     images: [
       'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/WorkOut1.png',
-      'https://picsum.photos/seed/enchant2/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/WorkOut2.png'
     ],
-    link: 'https://etytech.com/',
-    tags: ['TEMPLATE']
+    link: 'https://etytech.com/product',
+    tags: ['Wechat Program']
   },
 
 ];
