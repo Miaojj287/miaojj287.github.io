@@ -17,10 +17,10 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'SE Agent',
-    description: 'https://github.com/Miaojj287/SE-Agent',
+    description: 'A self-evolution framework enables trajectory-level evolution to exchange information across reasoning paths, expanding the search space and escaping local optima.',
     images: [
       'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Se1.png',
-      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Se2.Jpg'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Se2.jpg'
     ],
     link: 'https://github.com/Miaojj287/SE-Agent',
     tags: ['RL AI Project']
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     description: 'An website designed to present the institute\'s service offerings and representative project cases in a professional and engaging manner.',
     images: [
       'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCIID1.JPG',
-      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCIID2.PNG'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/SCIID2.png'
     ],
     link: 'https://github.com/Miaojj287/GDTUSCI-Web',
     tags: ['Responsive Website']
@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
     title: ' Wechat Bot',
     description: 'A custom WeChat plugin designed for bulk commercial email distribution. It features automatic keyword extraction and batch sending capabilities.',
     images: [
-      'https://picsum.photos/seed/paragon1/600/400'
+      'https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/WeChatBot.png'
     ],
     link: 'https://github.com/Miaojj287/wechat_BOT',
     tags: ['WeChat Plugin']
