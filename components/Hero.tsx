@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
 
       <div className="flex-1 flex flex-col items-center md:items-start space-y-6">
         <h2 className="text-4xl font-bold tracking-tight">Links</h2>
-        <div className="flex flex-col gap-4 items-center md:items-start w-full">
+        <div className="flex flex-col gap-4 items-center md:items-start">
           <a 
             href="mailto:yijunmiao287@gmail.com" 
             className="w-fit flex items-center gap-3 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors group"
