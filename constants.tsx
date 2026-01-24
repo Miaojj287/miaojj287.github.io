@@ -62,38 +62,16 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '6',
-    title: 'Enchant',
+    title: 'Intelligent work out',
     description: 'An immersive digital experience focusing on aesthetic minimalism and user-centric flows. Explored complex interactions and fluid animations.',
     images: [
-      'https://picsum.photos/seed/enchant1/600/400',
+      '/public/Public/WorkOut1.png',
       'https://picsum.photos/seed/enchant2/600/400'
     ],
     link: 'https://etytech.com/',
     tags: ['TEMPLATE']
   },
-  {
-    id: '7',
-    title: 'Paragon',
-    description: 'Step into the journey of a unique project. Here, I unravel the threads of my thought process and exciting steps taken from inception to execution.',
-    images: [
-      'https://picsum.photos/seed/paragon1/600/400',
-      'https://picsum.photos/seed/paragon2/600/400',
-      'https://picsum.photos/seed/paragon3/600/400'
-    ],
-    link: '#',
-    tags: ['USE CASE']
-  },
-  {
-    id: '8',
-    title: 'Enchant',
-    description: 'An immersive digital experience focusing on aesthetic minimalism and user-centric flows. Explored complex interactions and fluid animations.',
-    images: [
-      'https://picsum.photos/seed/enchant1/600/400',
-      'https://picsum.photos/seed/enchant2/600/400'
-    ],
-    link: 'https://etytech.com/',
-    tags: ['TEMPLATE']
-  }
+
 ];
 
 export const EXPERIENCES: Experience[] = [
@@ -107,7 +85,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: '2',
-    company: 'Ecom Bridge',
+    company: ' ByteDance',
     role: 'Product Lead',
     period: 'Dec 2025 - Current',
     location: 'GuangZhou, China',

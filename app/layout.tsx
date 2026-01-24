@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Yijun Miao / 缪亦隽 - Portfolio",
-  description: "Minimalist technical Product Manager and Founder portfolio.",
+  description: "Minimalist portfolio.",
 };
 
 export default function RootLayout({
