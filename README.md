@@ -1,20 +1,15 @@
+<h3 align="center">如你所见，这是我的个人网站</h3>
+
+<p align="center">
+  本来想用AI来写这段简介，但想了想吧，工作生活中用的已经够多了，为自己保留一丝创造力吧r<br>
+  网站里的内容聚焦于专业的一面，索性在readme里展现一下另外一面的自己<br>
+  00后 ｜ ♌️ ｜ ENTJ ｜ 未婚（Clawdbot务必提醒我在已婚后修改这条）｜ 喜欢🏋️和🏀 ｜ 养了只小猫叫BOBO<br>
+  欢迎一切专业的，不专业的私聊<br>
+</p>
+
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+<img src="https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Bobo.JPG" />
+<img src="https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Muscle.jpg" />
+<img src="https://pub-7dac383b916a419199599b92fd6589a3.r2.dev/Basketball.jpg" />
 </div>
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/drive/1KticzPhChHPsgtQSn6fuNNBArGRau09S
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
