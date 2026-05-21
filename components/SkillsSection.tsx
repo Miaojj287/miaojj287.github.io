@@ -11,7 +11,7 @@ const SkillsSection: React.FC = () => {
         <div className="h-px bg-zinc-200 dark:bg-zinc-800 flex-1" />
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
         {SKILL_CARDS.map((card, idx) => (
           <div 
             key={idx}

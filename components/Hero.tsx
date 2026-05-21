@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { Mail, Github, Linkedin, Instagram } from 'lucide-react';
 
 const TypewriterText: React.FC = () => {
-  const words = ["Founder", "Full-Stack Developer", "Product Manager", "Operation Manager"];
+  const words = ["Founder", "AI Product Manager", "Product Manager", "Full-Stack Developer"];
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
